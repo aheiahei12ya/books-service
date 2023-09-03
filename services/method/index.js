@@ -1,4 +1,4 @@
-const paymentMethodList = (req, res) => {
+const methodList = (req, res) => {
   res.send({
     "success": true,
     "data": '支出方式列表',
@@ -6,5 +6,5 @@ const paymentMethodList = (req, res) => {
 }
 
 module.exports = {
-  paymentMethodList,
+  methodList,
 }

@@ -8,7 +8,7 @@ const accountRouter = require('./routes/account');
 const categoryRouter = require('./routes/category');
 const expenseRouter = require('./routes/expense');
 const incomeRouter = require('./routes/income');
-const paymentMethodRouter = require('./routes/paymentMethod');
+const methodRouter = require('./routes/method');
 const platformRouter = require('./routes/platform');
 const settingRouter = require('./routes/setting');
 const shortcutRouter = require('./routes/shortcut');
@@ -29,7 +29,7 @@ app.use('/api/account', accountRouter)
 app.use('/api/category', categoryRouter)
 app.use('/api/expense', expenseRouter)
 app.use('/api/income', incomeRouter)
-app.use('/api/paymentMethod', paymentMethodRouter)
+app.use('/api/method', methodRouter)
 app.use('/api/platform', platformRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/shortcut', shortcutRouter)

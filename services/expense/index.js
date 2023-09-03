@@ -91,7 +91,7 @@ const expenseInitial = (req, res) => {
           "root": 1
         }
       ],
-      "paymentMethodList": [
+      "methodList": [
         {
           "id": 5,
           "name": "正常支付",
@@ -157,7 +157,7 @@ const expenseInitial = (req, res) => {
           "key": "balance",
           "name": "余额"
         },
-        "paymentMethod": {
+        "method": {
           "id": 2,
           "key": "normal",
           "name": "正常支付"

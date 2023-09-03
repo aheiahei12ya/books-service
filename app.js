@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let cors = require('cors')
 
 const accountRouter = require('./routes/account');
 const categoryRouter = require('./routes/category');
@@ -17,6 +18,7 @@ const userRouter = require('./routes/user');
 
 var app = express();
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

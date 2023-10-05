@@ -1,5 +1,5 @@
 import express from 'express';
-import { shortcutList } from '../services/shortcut';
+import { shortcutList } from '@/services/shortcut';
 
 const router = express.Router();
 

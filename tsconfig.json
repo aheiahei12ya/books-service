@@ -5,12 +5,17 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules"
   ],
-  "paths": {
-    "@/*": ["../src/*"]
-  }
+  "include": [
+    "./src/**/*"
+  ]
 }

@@ -1,5 +1,5 @@
 import express from 'express';
-import { expenseList, yearList } from '../services/transaction';
+import { expenseList, yearList } from '@/services/transaction';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { incomeInitial } from '../services/income';
+import { incomeInitial } from '@/services/income';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { platformList } from '../services/platform';
+import { platformList } from '@/services/platform';
 
 const router = express.Router();
 

@@ -1,18 +1,22 @@
+import 'module-alias/register';
+
 import createError from 'http-errors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import accountRouter from './routes/account';
-import categoryRouter from './routes/category';
-import expenseRouter from './routes/expense';
-import incomeRouter from './routes/income';
-import methodRouter from './routes/method';
-import platformRouter from './routes/platform';
-import settingRouter from './routes/setting';
-import shortcutRouter from './routes/shortcut';
-import statisticRouter from './routes/statistic';
-import transactionRouter from './routes/transaction';
-import userRouter from './routes/user';
+import {
+  accountRouter,
+  categoryRouter,
+  expenseRouter,
+  incomeRouter,
+  methodRouter,
+  platformRouter,
+  settingRouter,
+  shortcutRouter,
+  statisticRouter,
+  transactionRouter,
+  userRouter,
+} from '@/routes';
 
 let cors = require('cors');
 
@@ -61,8 +65,4 @@ app.use(function (
   res.render('error');
 });
 
-const port = 3001;
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export { app };

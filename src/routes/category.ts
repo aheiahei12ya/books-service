@@ -1,5 +1,5 @@
 import express from 'express';
-import { categoryList } from '../services/category';
+import { categoryList } from '@/services/category';
 
 const router = express.Router();
 

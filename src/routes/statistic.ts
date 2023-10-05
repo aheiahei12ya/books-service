@@ -3,13 +3,13 @@ import {
   balanceTrend,
   expenseHistogram,
   expenseTrend,
-} from '../services/statistic/trend';
+} from '@/services/statistic/trend';
 import {
   classification,
   expenseTimes,
   historyToday,
   methodReminder,
-} from '../services/statistic';
+} from '@/services/statistic';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { settingList } from '../services/setting';
+import { settingList } from '@/services/setting';
 
 const router = express.Router();
 

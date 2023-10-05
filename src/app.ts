@@ -1,4 +1,4 @@
-import 'module-alias/register';
+require('./alias');
 
 import createError from 'http-errors';
 import express from 'express';

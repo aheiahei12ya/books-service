@@ -5,9 +5,6 @@
   "scripts": {
     "start": "tsc && node dist/starter.js"
   },
-  "_moduleAliases": {
-    "@": "dist"
-  },
   "dependencies": {
     "@types/express": "^4.17.18",
     "cookie-parser": "~1.4.4",

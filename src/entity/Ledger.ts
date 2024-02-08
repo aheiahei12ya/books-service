@@ -1,11 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
+
+import { Base } from '@/entity/Base'
 
 @Entity()
-class Ledger {
-  // 账本 id
-  @PrimaryGeneratedColumn('uuid')
-  id?: string
-
+class Ledger extends Base {
   // 用户 id
   @Column()
   userId?: string
@@ -30,12 +28,8 @@ class Ledger {
   @Column()
   ledgerStatus?: number
 
-  // 创建日期
-  @Column('timestamp')
-  createTime?: number
-
   // 停用日期
-  @Column('timestamp')
+  @Column('datetime')
   disableTime?: number
 
   // 是否共享
@@ -44,9 +38,9 @@ class Ledger {
 }
 
 @Entity()
-export class GroupLedger {
+class GroupLedger extends Base {
   // 群组 id
-  @Column('uuid')
+  @PrimaryColumn()
   groupId?: string
 
   // 账户 id
@@ -57,7 +51,7 @@ export class GroupLedger {
   @Column('uuid')
   ownerId?: string
 
-  @Column('timestamp')
+  @Column('datetime')
   // 加入时间
   joinInTime?: number
 }

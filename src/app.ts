@@ -1,14 +1,13 @@
 require('./alias')
 
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import express from 'express'
 import createError from 'http-errors'
 import logger from 'morgan'
 
 import { AppDataSource } from '@/data-source'
 import { routes } from '@/routes'
-
-const cors = require('cors')
 
 const app = express()
 

@@ -1,11 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity } from 'typeorm'
+
+import { Base } from '@/entity/Base'
 
 @Entity()
-class Group {
-  // 群组 id
-  @PrimaryGeneratedColumn('uuid')
-  id?: string
-
+class Group extends Base {
   // 类型
   @Column()
   type?: number

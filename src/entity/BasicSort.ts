@@ -1,37 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
 
-abstract class BaseField {
-  // 名称
-  @Column({
-    length: 64
-  })
-  name?: string
-
-  // 图标
-  @Column({
-    length: 32
-  })
-  icon?: string
-
-  // 序号
-  @Column()
-  serialNumber?: number
-}
-
-abstract class BaseRelation extends BaseField {
-  // 用户 id
-  @Column()
-  userId?: string
-
-  // 账本 id
-  @Column()
-  ledgerId?: string
-}
+import { BaseSort, BaseSortRelation } from '@/entity/Base'
 
 @Entity()
-class Method extends BaseField {
+class Method extends BaseSort {
   // 方式 id
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryColumn()
   id?: string
 
   // 类型
@@ -40,50 +14,41 @@ class Method extends BaseField {
 }
 
 @Entity()
-class Category extends BaseField {
+class Category extends BaseSort {
   // 类别 id
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryColumn()
   id?: string
 }
 
 @Entity()
-class FirstLevelSort extends BaseRelation {
-  // 分类 id
-  @PrimaryGeneratedColumn('increment')
-  id?: number
-}
+class FirstLevelSort extends BaseSortRelation {}
 
 @Entity()
-class SecondLevelSort extends BaseRelation {
-  // 分类 id
-  @PrimaryGeneratedColumn('increment')
-  id?: number
-
+class SecondLevelSort extends BaseSortRelation {
   // 父类 id
   @Column()
   parentId?: number
 }
 
 @Entity()
-class Channel extends BaseRelation {
-  // 渠道 id
-  @PrimaryGeneratedColumn('increment')
-  id?: number
-
+class Channel extends BaseSortRelation {
   // 类型
   @Column()
   type?: number
 }
 
 @Entity()
-class Beneficiary extends BaseRelation {
-  // 受益人 id
-  @PrimaryGeneratedColumn('increment')
-  id?: number
-
+class Beneficiary extends BaseSortRelation {
   // 关系
   @Column()
   type?: number
 }
 
-export default [Method, Category, FirstLevelSort, SecondLevelSort, Channel, Beneficiary]
+export default [
+  Method,
+  Category,
+  FirstLevelSort,
+  SecondLevelSort,
+  Channel,
+  Beneficiary
+]

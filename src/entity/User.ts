@@ -1,11 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
+
+import { Base } from '@/entity/Base'
 
 @Entity()
-class User {
-  // 用户 id
-  @PrimaryGeneratedColumn('uuid')
-  id?: string
-
+class User extends Base {
   // 昵称
   @Column({
     length: 64
@@ -25,16 +23,16 @@ class User {
   avatar?: string
 
   // 最后登录时间
-  @Column('timestamp')
+  @Column('datetime')
   lastLoginTime?: number
-
-  // 创建时间
-  @Column('timestamp')
-  createTime?: number
 }
 
 @Entity()
 class GroupUser {
+  // 群组用户 id
+  @PrimaryColumn()
+  id?: string
+
   // 群组 id
   @Column()
   groupId?: string
@@ -44,11 +42,11 @@ class GroupUser {
   userId?: string
 
   // 加入时间
-  @Column('timestamp')
+  @Column('datetime')
   joinInTime?: number
 
   // 邀请人 id
-  @Column('timestamp')
+  @Column('datetime')
   invitorId?: string
 }
 

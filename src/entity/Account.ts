@@ -1,11 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
+
+import { Base } from '@/entity/Base'
 
 @Entity()
-class Account {
-  // 账户 id
-  @PrimaryGeneratedColumn('uuid')
-  id?: string
-
+class Account extends Base {
   // 用户 id
   @Column()
   userId?: string
@@ -37,7 +35,7 @@ class Account {
   balance?: string
 
   // 还款时间
-  @Column('timestamp')
+  @Column('datetime')
   repaymentTime?: number
 
   // 还款状态
@@ -61,14 +59,14 @@ class Account {
   totalExpense?: string
 
   // 重置时间
-  @Column('timestamp')
+  @Column('datetime')
   resetTime?: number
 }
 
 @Entity()
-export class GroupAccount {
+class GroupAccount extends Base {
   // 群组 id
-  @Column('uuid')
+  @PrimaryColumn()
   groupId?: string
 
   // 账户 id
@@ -79,7 +77,7 @@ export class GroupAccount {
   @Column('uuid')
   ownerId?: string
 
-  @Column('timestamp')
+  @Column('datetime')
   // 加入时间
   joinInTime?: number
 }

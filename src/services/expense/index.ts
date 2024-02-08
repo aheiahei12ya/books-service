@@ -13,7 +13,10 @@ const expenseInitial = (
           root: number
         }[]
         methodList: { id: number; name: string; key: string }[]
-        platformList: ({ id: number; name: string; key: string } | { id: number; name: string; key?: undefined })[]
+        platformList: (
+          | { id: number; name: string; key: string }
+          | { id: number; name: string; key?: undefined }
+        )[]
         preset: {
           account: { id: number; key: string; name: string }
           method: { id: number; key: string; name: string }

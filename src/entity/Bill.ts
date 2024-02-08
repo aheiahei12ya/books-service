@@ -1,85 +1,9 @@
 import { Column, Entity } from 'typeorm'
 
-abstract class BaseField {
-  // 用户 id
-  @Column()
-  userId?: string
-
-  // 账本 id
-  @Column()
-  ledgerId?: string
-
-  // 类别 id
-  @Column()
-  categoryId?: string
-
-  // 受益人 id
-  @Column()
-  beneficiaryId?: string
-
-  // 方式 id
-  @Column()
-  methodId?: string
-
-  // 账户 id
-  @Column()
-  accountId?: string
-
-  // 渠道 id
-  @Column()
-  channelId?: string
-
-  // 一级分类 id
-  @Column()
-  firstLevelSortId?: string
-
-  // 二级分类 id
-  @Column()
-  secondLevelSortId?: string
-
-  // 记录时间
-  @Column('timestamp')
-  recordTime?: number
-
-  // 创建时间
-  @Column('timestamp')
-  createTime?: number
-
-  // 修改时间
-  @Column('timestamp')
-  modifyTime?: number
-}
-
-abstract class AutoRecordField extends BaseField {
-  // 备注模版
-  @Column()
-  noteTemplate?: string
-
-  // 上次更新日期
-  @Column('timestamp')
-  updateTime?: number
-
-  // 当前状态
-  @Column()
-  status?: number
-
-  // 开始时间
-  @Column('timestamp')
-  startTime?: number
-}
-
-abstract class ManualRecordField extends BaseField {
-  // 备注
-  @Column()
-  note?: string
-}
+import { AutoRecordBill, ManualRecordBill } from '@/entity/Base'
 
 @Entity()
-class Bill extends ManualRecordField {
-  // 账单 id
-  @Column()
-  id?: string
-
+class Bill extends ManualRecordBill {
   // 原始金额
   @Column()
   originAmount?: string
@@ -94,11 +18,7 @@ class Bill extends ManualRecordField {
 }
 
 @Entity()
-class AdditionalBill extends ManualRecordField {
-  // 追加账单 id
-  @Column()
-  id?: string
-
+class AdditionalBill extends ManualRecordBill {
   // 账单 id
   @Column()
   billId?: string
@@ -113,11 +33,7 @@ class AdditionalBill extends ManualRecordField {
 }
 
 @Entity()
-class Reimbursement extends ManualRecordField {
-  // 报销 id
-  @Column()
-  id?: string
-
+class Reimbursement extends ManualRecordBill {
   // 报销金额
   @Column()
   amount?: string
@@ -127,16 +43,12 @@ class Reimbursement extends ManualRecordField {
   status?: number
 
   // 报销日期
-  @Column('timestamp')
+  @Column('datetime')
   reimbursementTime?: number
 }
 
 @Entity()
-class Installment extends AutoRecordField {
-  // 分期付款 id
-  @Column()
-  id?: string
-
+class Installment extends AutoRecordBill {
   // 总金额
   @Column()
   totalAmount?: string
@@ -167,11 +79,7 @@ class Installment extends AutoRecordField {
 }
 
 @Entity()
-class Automatic extends AutoRecordField {
-  // 自动记录 id
-  @Column()
-  id?: string
-
+class Automatic extends AutoRecordBill {
   // 总金额
   @Column()
   totalAmount?: string
@@ -198,11 +106,7 @@ class Automatic extends AutoRecordField {
 }
 
 @Entity()
-class Loan extends AutoRecordField {
-  // 贷款 id
-  @Column()
-  id?: string
-
+class Loan extends AutoRecordBill {
   // 贷款金额
   @Column()
   amount?: string
@@ -221,11 +125,7 @@ class Loan extends AutoRecordField {
 }
 
 @Entity()
-class Salary extends AutoRecordField {
-  // 工资 id
-  @Column()
-  id?: string
-
+class Salary extends AutoRecordBill {
   // 合同工资
   @Column()
   salary?: string
@@ -251,4 +151,12 @@ class Salary extends AutoRecordField {
   subsidy?: string
 }
 
-export default [Bill, AdditionalBill, Reimbursement, Installment, Automatic, Loan, Salary]
+export default [
+  Bill,
+  AdditionalBill,
+  Reimbursement,
+  Installment,
+  Automatic,
+  Loan,
+  Salary
+]

@@ -1,7 +1,16 @@
 import express from 'express'
 
-import { classification, expenseTimes, historyToday, methodReminder } from '@/services/statistic'
-import { balanceTrend, expenseHistogram, expenseTrend } from '@/services/statistic/trend'
+import {
+  classification,
+  expenseTimes,
+  historyToday,
+  methodReminder
+} from '@/services/statistic'
+import {
+  balanceTrend,
+  expenseHistogram,
+  expenseTrend
+} from '@/services/statistic/trend'
 
 const router = express.Router()
 

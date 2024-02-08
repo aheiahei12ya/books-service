@@ -1,7 +1,10 @@
 const userLogin = (
   req: any,
   res: {
-    send: (arg0: { success: boolean; data: { nickName: string; avatar: string; userInfo: { id: string } } }) => void
+    send: (arg0: {
+      success: boolean
+      data: { nickName: string; avatar: string; userInfo: { id: string } }
+    }) => void
   }
 ) => {
   res.send({
@@ -19,7 +22,10 @@ const userLogin = (
 const userInfo = (
   req: any,
   res: {
-    send: (arg0: { success: boolean; data: { nickName: string; userInfo: { id: string } } }) => void
+    send: (arg0: {
+      success: boolean
+      data: { nickName: string; userInfo: { id: string } }
+    }) => void
   }
 ) => {
   res.send({

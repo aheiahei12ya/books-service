@@ -1,11 +1,9 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity } from 'typeorm'
+
+import { Base } from '@/entity/Base'
 
 @Entity()
-class FiveInsurancesOneFund {
-  // 五险一金id
-  @PrimaryColumn()
-  id?: string
-
+class FiveInsurancesOneFund extends Base {
   // 养老金个人（8%）
   @Column()
   pensionPersonal?: string

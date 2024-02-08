@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity } from 'typeorm'
 
 import { Base } from '@/entity/Base'
 
@@ -28,11 +28,7 @@ class User extends Base {
 }
 
 @Entity()
-class GroupUser {
-  // 群组用户 id
-  @PrimaryColumn()
-  id?: string
-
+class GroupUser extends Base {
   // 群组 id
   @Column()
   groupId?: string

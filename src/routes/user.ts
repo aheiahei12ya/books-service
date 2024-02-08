@@ -1,10 +1,16 @@
-import express from 'express'
-
 import { userInfo, userLogin } from '@/services/user'
 
-const router = express.Router()
-
-router.post('/login', userLogin)
-router.post('/info', userInfo)
+const router = [
+  {
+    method: 'post',
+    path: '/login',
+    action: userLogin
+  },
+  {
+    method: 'post',
+    path: '/info',
+    action: userInfo
+  }
+]
 
 export default router

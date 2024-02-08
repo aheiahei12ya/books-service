@@ -1,9 +1,11 @@
-import express from 'express'
-
 import { categoryList } from '@/services/category'
 
-const router = express.Router()
-
-router.post('/list', categoryList)
+const router = [
+  {
+    method: 'post',
+    path: '/list',
+    action: categoryList
+  }
+]
 
 export default router

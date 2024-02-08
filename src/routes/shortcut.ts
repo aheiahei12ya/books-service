@@ -1,9 +1,10 @@
-import express from 'express'
-
 import { shortcutList } from '@/services/shortcut'
 
-const router = express.Router()
-
-router.post('/list', shortcutList)
-
+const router = [
+  {
+    method: 'post',
+    path: '/list',
+    action: shortcutList
+  }
+]
 export default router

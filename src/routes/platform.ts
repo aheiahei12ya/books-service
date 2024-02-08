@@ -1,9 +1,11 @@
-import express from 'express'
-
 import { platformList } from '@/services/platform'
 
-const router = express.Router()
-
-router.post('/list', platformList)
+const router = [
+  {
+    method: 'post',
+    path: '/list',
+    action: platformList
+  }
+]
 
 export default router

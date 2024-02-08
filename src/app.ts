@@ -8,6 +8,7 @@ import logger from 'morgan'
 
 import { AppDataSource } from '@/data-source'
 import { routes } from '@/routes'
+import { handler } from '@/utils/response'
 
 const app = express()
 
@@ -18,8 +19,15 @@ app
   .use(express.urlencoded({ extended: false }))
   .use(cookieParser())
 
-routes.forEach((route) => {
-  app.use(route.path, route.action)
+routes.forEach(({ child, path }) => {
+  const router = express.Router()
+  child.forEach((route) => {
+    router[route.method as 'post' | 'get'](
+      route.path,
+      new Proxy(route.action, handler)
+    )
+  })
+  app.use(path, router)
 })
 
 // catch 404 and forward to error handler

@@ -1,11 +1,14 @@
-const accountList = (
-  req: any,
-  res: { send: (arg0: { success: boolean; data: string }) => void }
-) => {
-  res.send({
-    success: true,
-    data: '账户列表'
-  })
+import { Request, Response } from 'express'
+
+import { AccountType } from '@/services/account/types'
+
+const accountList = (req: Request, res: Response): AccountType[] => {
+  return [
+    {
+      id: 3,
+      name: '1'
+    }
+  ]
 }
 
 export { accountList }

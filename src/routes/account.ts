@@ -1,9 +1,12 @@
-import express from 'express'
-
 import { accountList } from '@/services/account'
+import { ChildRouteType } from '@/types/route'
 
-const router = express.Router()
-
-router.post('/list', accountList)
+const router: ChildRouteType[] = [
+  {
+    method: 'post',
+    path: '/list',
+    action: accountList
+  }
+]
 
 export default router

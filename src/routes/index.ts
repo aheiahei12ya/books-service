@@ -13,46 +13,46 @@ import userRouter from './user'
 export const routes = [
   {
     path: '/api/transaction',
-    action: transactionRouter
+    child: transactionRouter
   },
   {
     path: '/api/account',
-    action: accountRouter
+    child: accountRouter
   },
   {
     path: '/api/category',
-    action: categoryRouter
+    child: categoryRouter
   },
   {
     path: '/api/expense',
-    action: expenseRouter
+    child: expenseRouter
   },
   {
     path: '/api/income',
-    action: incomeRouter
+    child: incomeRouter
   },
   {
     path: '/api/method',
-    action: methodRouter
+    child: methodRouter
   },
   {
     path: '/api/platform',
-    action: platformRouter
+    child: platformRouter
   },
   {
     path: '/api/setting',
-    action: settingRouter
+    child: settingRouter
   },
   {
     path: '/api/shortcut',
-    action: shortcutRouter
+    child: shortcutRouter
   },
   {
     path: '/api/statistics',
-    action: statisticRouter
+    child: statisticRouter
   },
   {
     path: '/api/user',
-    action: userRouter
+    child: userRouter
   }
 ]

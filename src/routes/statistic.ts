@@ -1,5 +1,3 @@
-import express from 'express'
-
 import {
   classification,
   expenseTimes,
@@ -12,14 +10,42 @@ import {
   expenseTrend
 } from '@/services/statistic/trend'
 
-const router = express.Router()
-
-router.post('/expense-trend', expenseTrend)
-router.post('/balance-trend', balanceTrend)
-router.post('/expense', expenseHistogram)
-router.post('/expense-times', expenseTimes)
-router.post('/history-today', historyToday)
-router.post('/method-reminder', methodReminder)
-router.post('/classification', classification)
+const router = [
+  {
+    method: 'post',
+    path: '/expense-trend',
+    action: expenseTrend
+  },
+  {
+    method: 'post',
+    path: '/balance-trend',
+    action: balanceTrend
+  },
+  {
+    method: 'post',
+    path: '/expense',
+    action: expenseHistogram
+  },
+  {
+    method: 'post',
+    path: '/expense-times',
+    action: expenseTimes
+  },
+  {
+    method: 'post',
+    path: '/history-today',
+    action: historyToday
+  },
+  {
+    method: 'post',
+    path: '/method-reminder',
+    action: methodReminder
+  },
+  {
+    method: 'post',
+    path: '/classification',
+    action: classification
+  }
+]
 
 export default router

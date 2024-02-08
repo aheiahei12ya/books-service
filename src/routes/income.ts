@@ -1,9 +1,11 @@
-import express from 'express'
-
 import { incomeInitial } from '@/services/income'
 
-const router = express.Router()
-
-router.post('/initial', incomeInitial)
+const router = [
+  {
+    method: 'post',
+    path: '/initial',
+    action: incomeInitial
+  }
+]
 
 export default router

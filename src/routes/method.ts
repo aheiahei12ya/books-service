@@ -1,8 +1,9 @@
-import express from 'express';
-import { methodList } from '@/services/method';
+import express from 'express'
 
-const router = express.Router();
+import { methodList } from '@/services/method'
 
-router.post('/list', methodList);
+const router = express.Router()
 
-export default router;
+router.post('/list', methodList)
+
+export default router

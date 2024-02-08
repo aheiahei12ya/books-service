@@ -1,24 +1,16 @@
-import express from 'express';
-import {
-  balanceTrend,
-  expenseHistogram,
-  expenseTrend,
-} from '@/services/statistic/trend';
-import {
-  classification,
-  expenseTimes,
-  historyToday,
-  methodReminder,
-} from '@/services/statistic';
+import express from 'express'
 
-const router = express.Router();
+import { classification, expenseTimes, historyToday, methodReminder } from '@/services/statistic'
+import { balanceTrend, expenseHistogram, expenseTrend } from '@/services/statistic/trend'
 
-router.post('/expense-trend', expenseTrend);
-router.post('/balance-trend', balanceTrend);
-router.post('/expense', expenseHistogram);
-router.post('/expense-times', expenseTimes);
-router.post('/history-today', historyToday);
-router.post('/method-reminder', methodReminder);
-router.post('/classification', classification);
+const router = express.Router()
 
-export default router;
+router.post('/expense-trend', expenseTrend)
+router.post('/balance-trend', balanceTrend)
+router.post('/expense', expenseHistogram)
+router.post('/expense-times', expenseTimes)
+router.post('/history-today', historyToday)
+router.post('/method-reminder', methodReminder)
+router.post('/classification', classification)
+
+export default router

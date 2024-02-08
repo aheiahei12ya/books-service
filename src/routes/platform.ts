@@ -1,8 +1,9 @@
-import express from 'express';
-import { platformList } from '@/services/platform';
+import express from 'express'
 
-const router = express.Router();
+import { platformList } from '@/services/platform'
 
-router.post('/list', platformList);
+const router = express.Router()
 
-export default router;
+router.post('/list', platformList)
+
+export default router

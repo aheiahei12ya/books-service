@@ -1,8 +1,9 @@
-import express from 'express';
-import { settingList } from '@/services/setting';
+import express from 'express'
 
-const router = express.Router();
+import { settingList } from '@/services/setting'
 
-router.post('/list', settingList);
+const router = express.Router()
 
-export default router;
+router.post('/list', settingList)
+
+export default router

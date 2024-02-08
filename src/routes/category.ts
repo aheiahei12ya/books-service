@@ -1,8 +1,9 @@
-import express from 'express';
-import { categoryList } from '@/services/category';
+import express from 'express'
 
-const router = express.Router();
+import { categoryList } from '@/services/category'
 
-router.post('/list', categoryList);
+const router = express.Router()
 
-export default router;
+router.post('/list', categoryList)
+
+export default router

@@ -1,11 +1,8 @@
-const settingList = (
-  req: any,
-  res: { send: (arg0: { success: boolean; data: string }) => void },
-) => {
+const settingList = (req: any, res: { send: (arg0: { success: boolean; data: string }) => void }) => {
   res.send({
     success: true,
-    data: '设置列表',
-  });
-};
+    data: '设置列表'
+  })
+}
 
-export { settingList };
+export { settingList }

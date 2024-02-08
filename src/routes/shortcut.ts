@@ -1,8 +1,9 @@
-import express from 'express';
-import { shortcutList } from '@/services/shortcut';
+import express from 'express'
 
-const router = express.Router();
+import { shortcutList } from '@/services/shortcut'
 
-router.post('/list', shortcutList);
+const router = express.Router()
 
-export default router;
+router.post('/list', shortcutList)
+
+export default router

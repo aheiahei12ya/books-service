@@ -1,43 +1,39 @@
 const expenseTimes = (
   req: any,
   res: {
-    send: (arg0: {
-      success: boolean;
-      data: { expenseTimes: number[] };
-    }) => void;
-  },
+    send: (arg0: { success: boolean; data: { expenseTimes: number[] } }) => void
+  }
 ) => {
   res.send({
     success: true,
     data: {
       expenseTimes: [
-        2, 1, 1, 8, 1, 1, 2, 2, 1, 1, 1, 2, 5, 1, 1, 1, 2, 0, 3, 2, 3, 1, 2, 1,
-        3, 4, 4, 5, 1, 3, 4, 3, 4, 5, 6,
-      ],
-    },
-  });
-};
+        2, 1, 1, 8, 1, 1, 2, 2, 1, 1, 1, 2, 5, 1, 1, 1, 2, 0, 3, 2, 3, 1, 2, 1, 3, 4, 4, 5, 1, 3, 4, 3, 4, 5, 6
+      ]
+    }
+  })
+}
 
 const historyToday = (
   req: any,
   res: {
     send: (arg0: {
-      success: boolean;
+      success: boolean
       data: {
         records: {
-          year: number;
+          year: number
           items: {
-            type: string;
-            note: string;
-            category: string;
-            subcategory: string;
-            amount: string;
-            time: string;
-          }[];
-        }[];
-      };
-    }) => void;
-  },
+            type: string
+            note: string
+            category: string
+            subcategory: string
+            amount: string
+            time: string
+          }[]
+        }[]
+      }
+    }) => void
+  }
 ) => {
   res.send({
     success: true,
@@ -52,7 +48,7 @@ const historyToday = (
               category: '类别类别类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -60,7 +56,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -68,7 +64,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -76,9 +72,9 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
-            },
-          ],
+              time: '19:30'
+            }
+          ]
         },
         {
           year: 2019,
@@ -89,7 +85,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -97,7 +93,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -105,7 +101,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -113,7 +109,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -121,7 +117,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -129,7 +125,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -137,7 +133,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -145,9 +141,9 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
-            },
-          ],
+              time: '19:30'
+            }
+          ]
         },
         {
           year: 2018,
@@ -158,7 +154,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -166,7 +162,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -174,7 +170,7 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
+              time: '19:30'
             },
             {
               type: '支出',
@@ -182,43 +178,43 @@ const historyToday = (
               category: '类别',
               subcategory: '子类别',
               amount: '100.23',
-              time: '19:30',
-            },
-          ],
-        },
-      ],
-    },
-  });
-};
+              time: '19:30'
+            }
+          ]
+        }
+      ]
+    }
+  })
+}
 
 const methodReminder = (
   req: any,
   res: {
     send: (arg0: {
-      success: boolean;
+      success: boolean
       data: {
         installmentItems: {
-          note: string;
-          remain: string;
-          finish: string;
-          amount: string;
-        }[];
+          note: string
+          remain: string
+          finish: string
+          amount: string
+        }[]
         autoRecordItems: {
-          date: string;
-          note: string;
-          remain: string;
-          amount: string;
-          id: number;
-        }[];
+          date: string
+          note: string
+          remain: string
+          amount: string
+          id: number
+        }[]
         reimbursementItems: {
-          note: string;
-          date: string;
-          state: string;
-          id: number;
-        }[];
-      };
-    }) => void;
-  },
+          note: string
+          date: string
+          state: string
+          id: number
+        }[]
+      }
+    }) => void
+  }
 ) => {
   res.send({
     success: true,
@@ -228,56 +224,56 @@ const methodReminder = (
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
+          amount: '100.23'
         },
         {
           note: '商品1',
           remain: '10',
           finish: '14',
-          amount: '100.23',
-        },
+          amount: '100.23'
+        }
       ],
       autoRecordItems: [
         {
@@ -285,32 +281,32 @@ const methodReminder = (
           note: '商品1',
           remain: '10',
           amount: '100.23',
-          id: 1,
-        },
+          id: 1
+        }
       ],
       reimbursementItems: [
         {
           note: '商品1',
           date: '2022-02-02',
           state: '报销中',
-          id: 1,
-        },
-      ],
-    },
-  });
-};
+          id: 1
+        }
+      ]
+    }
+  })
+}
 
 const classification = (
   req: any,
   res: {
     send: (arg0: {
-      success: boolean;
+      success: boolean
       data: {
-        headList: { itemName: string; amount: number; percentage: number }[];
-        itemList: { itemName: string; amount: number; percentage: number }[];
-      };
-    }) => void;
-  },
+        headList: { itemName: string; amount: number; percentage: number }[]
+        itemList: { itemName: string; amount: number; percentage: number }[]
+      }
+    }) => void
+  }
 ) => {
   res.send({
     success: true,
@@ -319,63 +315,63 @@ const classification = (
         {
           itemName: '本月收入',
           amount: 3333.33,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '本月支出',
           amount: 88888.88,
-          percentage: 84.3,
-        },
+          percentage: 84.3
+        }
       ],
       itemList: [
         {
           itemName: '日常开销',
           amount: 3213.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '住房开销',
           amount: 3133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '意外开销',
           amount: 2133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '设备引进',
           amount: 133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '人物培养',
           amount: 133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '生活开销',
           amount: 133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '虚拟商品',
           amount: 33.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '败家消费',
           amount: 133.23,
-          percentage: 84.3,
+          percentage: 84.3
         },
         {
           itemName: '出行开销',
           amount: 333.23,
-          percentage: 84.3,
-        },
-      ],
-    },
-  });
-};
+          percentage: 84.3
+        }
+      ]
+    }
+  })
+}
 
-export { expenseTimes, historyToday, methodReminder, classification };
+export { classification, expenseTimes, historyToday, methodReminder }

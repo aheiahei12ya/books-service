@@ -1,9 +1,10 @@
-import express from 'express';
-import { userInfo, userLogin } from '@/services/user';
+import express from 'express'
 
-const router = express.Router();
+import { userInfo, userLogin } from '@/services/user'
 
-router.post('/login', userLogin);
-router.post('/info', userInfo);
+const router = express.Router()
 
-export default router;
+router.post('/login', userLogin)
+router.post('/info', userInfo)
+
+export default router

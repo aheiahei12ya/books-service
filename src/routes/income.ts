@@ -1,8 +1,9 @@
-import express from 'express';
-import { incomeInitial } from '@/services/income';
+import express from 'express'
 
-const router = express.Router();
+import { incomeInitial } from '@/services/income'
 
-router.post('/initial', incomeInitial);
+const router = express.Router()
 
-export default router;
+router.post('/initial', incomeInitial)
+
+export default router

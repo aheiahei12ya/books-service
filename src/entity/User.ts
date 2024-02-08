@@ -3,7 +3,7 @@ import { Column, Entity } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class User extends Base {
+export class User extends Base {
   // 昵称
   @Column({
     length: 64
@@ -28,7 +28,7 @@ class User extends Base {
 }
 
 @Entity()
-class GroupUser extends Base {
+export class GroupUser extends Base {
   // 群组 id
   @Column()
   groupId?: string

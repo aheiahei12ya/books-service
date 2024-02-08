@@ -21,9 +21,10 @@ app
 
 routes.forEach(({ child, path }) => {
   const router = express.Router()
-  child.forEach((route) => {
+  child.forEach((route: any) => {
     router[route.method as 'post' | 'get'](
       route.path,
+      route?.validator || [],
       new Proxy(route.action, handler)
     )
   })

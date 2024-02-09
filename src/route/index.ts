@@ -1,12 +1,12 @@
 import accountRouter from './account'
 import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
+import channelRouter from './channel'
 import expenseRouter from './expense'
 import firstLevelSortRouter from './firstLevelSort'
 import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
-import platformRouter from './platform'
 import secondLevelSortRouter from './secondLevelSort'
 import settingRouter from './setting'
 import shortcutRouter from './shortcut'
@@ -40,8 +40,8 @@ export const routes = [
     child: methodRouter
   },
   {
-    path: '/api/platform',
-    child: platformRouter
+    path: '/api/channel',
+    child: channelRouter
   },
   {
     path: '/api/setting',

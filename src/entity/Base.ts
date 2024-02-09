@@ -114,10 +114,6 @@ export abstract class ManualRecordBill extends BaseBill {
 }
 
 export abstract class BaseSortRelation extends BaseSort {
-  // 用户 id
-  @Column()
-  userId?: string
-
   // 账本 id
   @Column()
   ledgerId?: string

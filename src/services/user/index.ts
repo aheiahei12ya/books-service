@@ -3,46 +3,78 @@ import { uuidv7 } from 'uuidv7'
 
 import { AppDataSource } from '@/data-source'
 import { User } from '@/entity/User'
-import { UserInfoType } from '@/services/user/types'
+import { getUserById } from '@/services/user/utils'
 
-const userLogin = async (req: Request, res: Response) => {
-  return {
-    nickName: '12ya',
-    avatar: 'http://aheiahei.imdo.co:8081/repository/blob/avatar/avatar.png',
-    userInfo: {
-      id: '1'
+export const userLogin = async (req: Request, res: Response) => {
+  const userRepository = AppDataSource.getRepository(User)
+
+  const userObj = await userRepository.findOneBy({
+    account: req.body.account
+  })
+
+  if (!userObj) {
+    throw '用户不存在'
+  }
+
+  if (
+    userObj.account === req.body.account &&
+    userObj.password === req.body.password
+  ) {
+    return {
+      nickname: userObj.nickname,
+      avatar: userObj.avatar,
+      uid: userObj.id
     }
+  } else {
+    throw '用户名或密码错误'
   }
 }
 
-const userInfo = async (req: Request, res: Response): Promise<UserInfoType> => {
-  return {
-    nickName: '12ya',
-    userInfo: {
-      id: '1'
-    }
-  }
-}
-
-const userCreate = async (req: Request, res: Response) => {
+export const userCreate = async (req: Request, res: Response) => {
   const userRepository = AppDataSource.getRepository(User)
   let uuid = uuidv7()
   while (await userRepository.existsBy({ id: uuid })) {
     uuid = uuidv7()
   }
+  const userExist = await userRepository.existsBy({ account: req.body.account })
+
+  if (userExist) {
+    throw '账号已被注册'
+  }
+
   const user = userRepository.create({
     id: uuid,
     nickname: req.body.nickname,
     password: req.body.password,
-    avatar: req.body.avatar
+    avatar: req.body.avatar,
+    account: req.body.account
   })
+
+  await userRepository.save(user)
+
   return {
-    userId: user.id
+    uid: user.id
   }
 }
 
-const userModify = async (req: Request, res: Response) => {}
+export const userInfo = async (req: Request, res: Response) => {
+  const { userObj } = await getUserById(req.cookies.uid)
+  return userObj
+}
 
-const userRemove = async (req: Request, res: Response) => {}
+export const userModify = async (req: Request, res: Response) => {
+  const { userObj, userRepository } = await getUserById(req.cookies.uid)
+  const newUser = userRepository.merge(userObj, req.body)
+  await userRepository.save(newUser)
+  return {
+    message: '用户信息修改成功'
+  }
+}
 
-export { userCreate, userInfo, userLogin, userModify, userRemove }
+export const userRemove = async (req: Request, res: Response) => {
+  const { userObj, userRepository } = await getUserById(req.cookies.uid)
+  await userRepository.remove(userObj)
+  return {
+    message: '用户已删除'
+  }
+}

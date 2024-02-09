@@ -4,17 +4,21 @@ import { Base } from '@/entity/Base'
 
 @Entity()
 export class User extends Base {
-  // 昵称
-  @Column({
-    length: 64
-  })
-  nickname?: string
+  // 账号
+  @Column()
+  account!: string
 
   // 密码
   @Column({
     length: 128
   })
-  password?: string
+  password!: string
+
+  // 昵称
+  @Column({
+    length: 64
+  })
+  nickname!: string
 
   // 头像
   @Column({
@@ -23,7 +27,9 @@ export class User extends Base {
   avatar?: string
 
   // 最后登录时间
-  @Column('datetime')
+  @Column('datetime', {
+    nullable: true
+  })
   lastLoginTime?: number
 }
 
@@ -31,15 +37,15 @@ export class User extends Base {
 export class GroupUser extends Base {
   // 群组 id
   @Column()
-  groupId?: string
+  groupId!: string
 
   // 用户 id
   @Column()
-  userId?: string
+  userId!: string
 
   // 加入时间
   @Column('datetime')
-  joinInTime?: number
+  joinInTime!: number
 
   // 邀请人 id
   @Column('datetime')

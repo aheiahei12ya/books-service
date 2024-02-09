@@ -12,6 +12,11 @@ export abstract class Base {
   // 修改时间
   @Column('datetime')
   modifyTime?: number
+
+  constructor() {
+    this.createTime = new Date().getTime()
+    this.modifyTime = new Date().getTime()
+  }
 }
 
 export abstract class BaseBill extends Base {

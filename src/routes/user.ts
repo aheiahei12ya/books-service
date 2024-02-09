@@ -5,18 +5,26 @@ import {
   userModify,
   userRemove
 } from '@/services/user'
-import { userCreateInterface } from '@/services/user/interface'
+import {
+  userCreateInterface,
+  userInfoInterface,
+  userLoginInterface,
+  userModifyInterface,
+  userRemoveInterface
+} from '@/services/user/interface'
 
 const router = [
   {
     method: 'post',
     path: '/login',
-    action: userLogin
+    action: userLogin,
+    validator: userLoginInterface
   },
   {
     method: 'post',
     path: '/info',
-    action: userInfo
+    action: userInfo,
+    validator: userInfoInterface
   },
   {
     method: 'post',
@@ -27,12 +35,14 @@ const router = [
   {
     method: 'post',
     path: '/modify',
-    action: userModify
+    action: userModify,
+    validator: userModifyInterface
   },
   {
     method: 'post',
     path: '/remove',
-    action: userRemove
+    action: userRemove,
+    validator: userRemoveInterface
   }
 ]
 

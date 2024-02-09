@@ -3,7 +3,7 @@ import { validationResult } from 'express-validator'
 
 export const handler = {
   apply: async function <T>(
-    target: (req: Request, res: Response) => T,
+    target: (req: Request, res: Response) => Promise<{ message?: string } & T>,
     thisArg: any,
     argumentsList: [Request, Response]
   ) {
@@ -14,10 +14,29 @@ export const handler = {
       return res.status(400).json({ errors: errors.array() })
     }
 
-    const result = await target(req, res)
-    res.send({
-      success: true,
-      data: result
-    })
+    let result, success, message
+
+    try {
+      result = await target(req, res)
+      success = true
+      message = result.message || ''
+
+      if (Reflect.has(result, 'success')) {
+        Reflect.deleteProperty(result, 'success')
+      }
+
+      if (Reflect.has(result, 'message')) {
+        Reflect.deleteProperty(result, 'message')
+      }
+    } catch (errorMessage) {
+      success = false
+      message = errorMessage
+    } finally {
+      res.send({
+        success: success,
+        message: message,
+        data: result
+      })
+    }
   }
 }

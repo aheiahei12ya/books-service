@@ -19,6 +19,16 @@ export abstract class Base {
   }
 }
 
+export abstract class BaseGroup extends Base {
+  // 归属人id
+  @Column()
+  ownerId?: string
+
+  @Column('datetime')
+  // 加入时间
+  joinInTime?: number
+}
+
 export abstract class BaseBill extends Base {
   // 用户 id
   @Column()

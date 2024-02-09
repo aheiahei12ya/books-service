@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity } from 'typeorm'
 
-import { Base } from '@/entity/Base'
+import { BaseGroup, BaseSort } from '@/entity/Base'
 
 @Entity()
-class Account extends Base {
+class Account extends BaseSort {
   // 用户 id
   @Column()
   userId?: string
@@ -11,22 +11,6 @@ class Account extends Base {
   // 类型
   @Column()
   type?: number
-
-  // 名称
-  @Column({
-    length: 64
-  })
-  name?: string
-
-  // 图标
-  @Column({
-    length: 32
-  })
-  icon?: string
-
-  // 序号
-  @Column()
-  serialNumber?: number
 
   // 余额
   @Column({
@@ -64,22 +48,10 @@ class Account extends Base {
 }
 
 @Entity()
-class GroupAccount extends Base {
-  // 群组 id
-  @PrimaryColumn()
-  groupId?: string
-
+class GroupAccount extends BaseGroup {
   // 账户 id
-  @Column('uuid')
+  @Column()
   accountId?: string
-
-  // 归属人id
-  @Column('uuid')
-  ownerId?: string
-
-  @Column('datetime')
-  // 加入时间
-  joinInTime?: number
 }
 
 export default [Account, GroupAccount]

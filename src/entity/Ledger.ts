@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class Ledger extends Base {
+export class Ledger extends Base {
   // 用户 id
   @Column()
   userId?: string
@@ -29,7 +29,9 @@ class Ledger extends Base {
   ledgerStatus?: number
 
   // 停用日期
-  @Column('datetime')
+  @Column('datetime', {
+    nullable: true
+  })
   disableTime?: number
 
   // 是否共享
@@ -38,7 +40,7 @@ class Ledger extends Base {
 }
 
 @Entity()
-class GroupLedger extends Base {
+export class GroupLedger extends Base {
   // 群组 id
   @PrimaryColumn()
   groupId?: string

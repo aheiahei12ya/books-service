@@ -2,6 +2,7 @@ import accountRouter from './account'
 import categoryRouter from './category'
 import expenseRouter from './expense'
 import incomeRouter from './income'
+import ledgerRouter from './ledger'
 import methodRouter from './method'
 import platformRouter from './platform'
 import settingRouter from './setting'
@@ -54,5 +55,9 @@ export const routes = [
   {
     path: '/api/user',
     child: userRouter
+  },
+  {
+    path: '/api/ledger',
+    child: ledgerRouter
   }
 ]

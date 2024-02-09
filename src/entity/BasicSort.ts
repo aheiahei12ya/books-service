@@ -1,47 +1,39 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity } from 'typeorm'
 
 import { BaseSort, BaseSortRelation } from '@/entity/Base'
 
 @Entity()
-class Method extends BaseSort {
-  // 方式 id
-  @PrimaryColumn()
-  id?: string
+export class Category extends BaseSort {}
 
-  // 类型
+@Entity()
+export class Method extends BaseSortRelation {
+  // 分类 id
   @Column()
-  type?: number
+  categoryId?: number
 }
 
 @Entity()
-class Category extends BaseSort {
-  // 类别 id
-  @PrimaryColumn()
-  id?: string
-}
+export class FirstLevelSort extends BaseSortRelation {}
 
 @Entity()
-class FirstLevelSort extends BaseSortRelation {}
-
-@Entity()
-class SecondLevelSort extends BaseSortRelation {
+export class SecondLevelSort extends BaseSortRelation {
   // 父类 id
   @Column()
   parentId?: number
 }
 
 @Entity()
-class Channel extends BaseSortRelation {
-  // 类型
+export class Channel extends BaseSortRelation {
+  // 分类 id
   @Column()
-  type?: number
+  categoryId?: number
 }
 
 @Entity()
-class Beneficiary extends BaseSortRelation {
+export class Beneficiary extends BaseSortRelation {
   // 关系
   @Column()
-  type?: number
+  relationship?: number
 }
 
 export default [

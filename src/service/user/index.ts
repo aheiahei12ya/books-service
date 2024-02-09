@@ -60,12 +60,12 @@ export const userCreate = async (req: Request, res: Response) => {
 }
 
 export const userInfo = async (req: Request, res: Response) => {
-  const { userObj } = await getUserById(req.cookies.uid)
+  const { userObj } = await getUserById(req)
   return userObj
 }
 
 export const userModify = async (req: Request, res: Response) => {
-  const { userObj, userRepository } = await getUserById(req.cookies.uid)
+  const { userObj, userRepository } = await getUserById(req)
   const newUser = userRepository.merge(userObj, req.body)
   await userRepository.save(newUser)
   return {
@@ -74,7 +74,7 @@ export const userModify = async (req: Request, res: Response) => {
 }
 
 export const userRemove = async (req: Request, res: Response) => {
-  const { userObj, userRepository } = await getUserById(req.cookies.uid)
+  const { userObj, userRepository } = await getUserById(req)
   await userRepository.remove(userObj)
   return {
     message: '用户已删除'

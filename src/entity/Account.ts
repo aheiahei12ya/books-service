@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm'
 
-import { BaseGroup, BaseSort } from '@/entity/Base'
+import { BaseSort } from '@/entity/Base'
 
 @Entity()
 export class Account extends BaseSort {
@@ -59,11 +59,4 @@ export class Account extends BaseSort {
   resetTime?: number
 }
 
-@Entity()
-export class GroupAccount extends BaseGroup {
-  // 账户 id
-  @Column()
-  accountId?: string
-}
-
-export default [Account, GroupAccount]
+export default [Account]

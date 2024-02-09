@@ -67,4 +67,11 @@ export class GroupLedger extends BaseGroup {
   ledgerId?: string
 }
 
-export default [Group, GroupUser, GroupLedger]
+@Entity()
+export class GroupAccount extends BaseGroup {
+  // 账户 id
+  @Column()
+  accountId?: string
+}
+
+export default [Group, GroupUser, GroupLedger, GroupAccount]

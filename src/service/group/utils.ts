@@ -1,7 +1,7 @@
 import { Request } from 'express'
 
 import { AppDataSource } from '@/data-source'
-import { Group, GroupLedger, GroupUser } from '@/entity/Group'
+import { Group, GroupAccount, GroupLedger, GroupUser } from '@/entity/Group'
 
 export const getGroupById = async (req: Request) => {
   const groupRepository = AppDataSource.getRepository(Group)
@@ -42,4 +42,15 @@ export const getGroupLedgerById = async (req: Request) => {
     throw '群组账本不存在'
   }
   return { groupLedgerObj, groupLedgerRepository }
+}
+
+export const getGroupAccountById = async (req: Request) => {
+  const groupAccountRepository = AppDataSource.getRepository(GroupAccount)
+  const groupAccountObj = await groupAccountRepository.findOneBy({
+    id: req.body.id
+  })
+  if (!groupAccountObj) {
+    throw '群组账户不存在'
+  }
+  return { groupAccountObj, groupAccountRepository }
 }

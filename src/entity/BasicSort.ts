@@ -20,7 +20,7 @@ export class SecondLevelSort extends BaseSort {
 }
 
 @Entity()
-export class Method extends BaseSortRelation {
+export class Method extends BaseSort {
   // 分类 id
   @Column()
   categoryId?: number

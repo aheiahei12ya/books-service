@@ -33,23 +33,4 @@ export class User extends Base {
   lastLoginTime?: number
 }
 
-@Entity()
-export class GroupUser extends Base {
-  // 群组 id
-  @Column()
-  groupId!: string
-
-  // 用户 id
-  @Column()
-  userId!: string
-
-  // 加入时间
-  @Column('datetime')
-  joinInTime!: number
-
-  // 邀请人 id
-  @Column('datetime')
-  invitorId?: string
-}
-
-export default [User, GroupUser]
+export default [User]

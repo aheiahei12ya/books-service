@@ -39,4 +39,25 @@ export class Group extends Base {
   creatorId?: string
 }
 
-export default [Group]
+@Entity()
+export class GroupUser extends Base {
+  // 群组 id
+  @Column()
+  groupId!: string
+
+  // 用户 id
+  @Column()
+  userId!: string
+
+  // 邀请人 id
+  @Column('datetime', {
+    nullable: true
+  })
+  invitorId!: string
+
+  // 用户权限
+  @Column()
+  permission!: string
+}
+
+export default [Group, GroupUser]

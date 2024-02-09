@@ -20,4 +20,10 @@ export enum ACCOUNT_STATUS {
   OVERDUE = 6 // 已逾期
 }
 
+export enum GROUP_PERMISSION {
+  READONLY = 0,
+  NORMAL = 1,
+  ADMIN = 2,
+}
+
 export const UNIQUE_TOKEN = '018d8c7c-134c-7c37-968c-c5e02bbfd248'

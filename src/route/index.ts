@@ -5,6 +5,7 @@ import channelRouter from './channel'
 import expenseRouter from './expense'
 import firstLevelSortRouter from './firstLevelSort'
 import groupRouter from './group'
+import groupUserRouter from './group/user'
 import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
@@ -79,5 +80,9 @@ export const routes = [
   {
     path: '/api/group',
     child: groupRouter
+  },
+  {
+    path: '/api/group/user',
+    child: groupUserRouter
   }
 ]

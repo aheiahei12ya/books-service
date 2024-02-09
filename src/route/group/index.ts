@@ -4,14 +4,14 @@ import {
   groupList,
   groupModify,
   groupRemove
-} from '@/service/group'
+} from '@/service/group/management'
 import {
   groupCreateInterface,
   groupDetailInterface,
   groupListInterface,
   groupModifyInterface,
   groupRemoveInterface
-} from '@/service/group/interface'
+} from '@/service/group/management/interface'
 import { ChildRouteType } from '@/type/route'
 
 const router: ChildRouteType[] = [

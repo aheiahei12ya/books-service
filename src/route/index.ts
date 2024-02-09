@@ -2,6 +2,7 @@ import accountRouter from './account'
 import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
 import expenseRouter from './expense'
+import firstLevelSortRouter from './firstLevelSort'
 import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
@@ -64,5 +65,9 @@ export const routes = [
   {
     path: '/api/beneficiary',
     child: beneficiaryRouter
-  }
+  },
+  {
+    path: '/api/firstLevelSort',
+    child: firstLevelSortRouter
+  },
 ]

@@ -14,15 +14,15 @@ export const ledgerCreateInterface = [
 
 export const ledgerDetailInterface = [
   cookie('uid').isString(),
-  body('lid').isString()
+  body('id').isString()
 ]
 
 export const ledgerModifyInterface = [
   cookie('uid').isString(),
-  body('lid').isString()
+  body('id').isString()
 ]
 
 export const ledgerRemoveInterface = [
   cookie('uid').isString(),
-  body('lid').isString()
+  body('id').isString()
 ]

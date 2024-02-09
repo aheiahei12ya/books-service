@@ -36,17 +36,17 @@ export const ledgerCreate = async (req: Request, res: Response) => {
   await repository.save(ledger)
 
   return {
-    lid: ledger.id
+    id: ledger.id
   }
 }
 
 export const ledgerDetail = async (req: Request, res: Response) => {
-  const { ledgerObj } = await getLedgerById(req.body.lid)
+  const { ledgerObj } = await getLedgerById(req.body.id)
   return ledgerObj
 }
 
 export const ledgerModify = async (req: Request, res: Response) => {
-  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.lid)
+  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.id)
   const newLedger = ledgerRepository.merge(ledgerObj, req.body)
   await ledgerRepository.save(newLedger)
   return {
@@ -55,7 +55,7 @@ export const ledgerModify = async (req: Request, res: Response) => {
 }
 
 export const ledgerRemove = async (req: Request, res: Response) => {
-  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.lid)
+  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.id)
   await ledgerRepository.remove(ledgerObj)
   return {
     message: '账本已删除'

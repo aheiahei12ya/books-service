@@ -55,7 +55,7 @@ export const userCreate = async (req: Request, res: Response) => {
   await userRepository.save(user)
 
   return {
-    uid: user.id
+    id: user.id
   }
 }
 

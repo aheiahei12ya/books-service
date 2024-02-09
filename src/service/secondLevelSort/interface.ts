@@ -1,6 +1,6 @@
 import { body, cookie } from 'express-validator'
 
-export const secondLevelSortListInterface = [body('parentId').isString()]
+export const secondLevelSortListInterface = [body('parentSortId').isString()]
 
 export const secondLevelSortCreateInterface = [
   cookie('uid').isString(),
@@ -9,20 +9,20 @@ export const secondLevelSortCreateInterface = [
   body('icon').isString(),
   body('rank').isNumeric(),
 
-  body('parentId').isString()
+  body('parentSortId').isString()
 ]
 
 export const secondLevelSortDetailInterface = [
-  body('parentId').isString(),
+  body('parentSortId').isString(),
   body('id').isString()
 ]
 
 export const secondLevelSortModifyInterface = [
-  body('parentId').isString(),
+  body('parentSortId').isString(),
   body('id').isString()
 ]
 
 export const secondLevelSortRemoveInterface = [
-  body('parentId').isString(),
+  body('parentSortId').isString(),
   body('id').isString()
 ]

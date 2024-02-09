@@ -7,16 +7,16 @@ export class Category extends BaseSort {}
 
 @Entity()
 export class FirstLevelSort extends BaseSort {
-  // 父类 id (CategoryId)
+  // 分类 id
   @Column()
-  parentId?: number
+  categoryId?: number
 }
 
 @Entity()
 export class SecondLevelSort extends BaseSort {
   // 父类 id (FirstLevelSortId)
   @Column()
-  parentId?: number
+  parentSortId?: number
 }
 
 @Entity()

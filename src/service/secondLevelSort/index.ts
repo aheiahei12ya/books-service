@@ -10,12 +10,12 @@ export const secondLevelSortList = async (req: Request, res: Response) => {
   const repository = AppDataSource.getRepository(SecondLevelSort)
 
   return await repository.findBy({
-    parentId: req.body.parentId
+    parentSortId: req.body.parentSortId
   })
 }
 
 export const secondLevelSortCreate = async (req: Request, res: Response) => {
-  await checkFirstLevelSortExistsById(req.body.parentId)
+  await checkFirstLevelSortExistsById(req.body.parentSortId)
 
   const repository = AppDataSource.getRepository(SecondLevelSort)
 
@@ -32,7 +32,7 @@ export const secondLevelSortCreate = async (req: Request, res: Response) => {
     icon: req.body.icon,
     rank: req.body.rank,
 
-    parentId: req.body.parentId
+    parentSortId: req.body.parentSortId
   })
 
   await repository.save(secondLevelSort)

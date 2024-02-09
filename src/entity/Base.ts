@@ -86,7 +86,7 @@ export abstract class BaseSort extends Base {
 
   // 序号
   @Column()
-  serialNumber?: number
+  rank?: number
 }
 
 export abstract class AutoRecordBill extends BaseBill {

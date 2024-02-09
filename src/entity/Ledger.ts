@@ -14,7 +14,7 @@ export class Ledger extends BaseSort {
 
   // 账本状态
   @Column()
-  ledgerStatus?: number
+  status?: number
 
   // 停用日期
   @Column('datetime', {

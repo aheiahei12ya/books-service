@@ -32,14 +32,16 @@ export const userLogin = async (req: Request, res: Response) => {
 
 export const userCreate = async (req: Request, res: Response) => {
   const userRepository = AppDataSource.getRepository(User)
-  let uuid = uuidv7()
-  while (await userRepository.existsBy({ id: uuid })) {
-    uuid = uuidv7()
-  }
+
   const userExist = await userRepository.existsBy({ account: req.body.account })
 
   if (userExist) {
     throw '账号已被注册'
+  }
+
+  let uuid = uuidv7()
+  while (await userRepository.existsBy({ id: uuid })) {
+    uuid = uuidv7()
   }
 
   const user = userRepository.create({

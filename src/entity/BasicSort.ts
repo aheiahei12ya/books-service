@@ -6,20 +6,24 @@ import { BaseSort, BaseSortRelation } from '@/entity/Base'
 export class Category extends BaseSort {}
 
 @Entity()
+export class FirstLevelSort extends BaseSort {
+  // 父类 id (CategoryId)
+  @Column()
+  parentId?: number
+}
+
+@Entity()
+export class SecondLevelSort extends BaseSort {
+  // 父类 id (FirstLevelSortId)
+  @Column()
+  parentId?: number
+}
+
+@Entity()
 export class Method extends BaseSortRelation {
   // 分类 id
   @Column()
   categoryId?: number
-}
-
-@Entity()
-export class FirstLevelSort extends BaseSortRelation {}
-
-@Entity()
-export class SecondLevelSort extends BaseSortRelation {
-  // 父类 id
-  @Column()
-  parentId?: number
 }
 
 @Entity()

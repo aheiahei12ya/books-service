@@ -1,50 +1,18 @@
-import {
-  groupCreate,
-  groupDetail,
-  groupList,
-  groupModify,
-  groupRemove
-} from '@/service/group/management'
-import {
-  groupCreateInterface,
-  groupDetailInterface,
-  groupListInterface,
-  groupModifyInterface,
-  groupRemoveInterface
-} from '@/service/group/management/interface'
-import { ChildRouteType } from '@/type/route'
+import groupLedgerRouter from '@/route/group/ledger'
+import groupManagementRouter from '@/route/group/management'
+import groupUserRouter from '@/route/group/user'
 
-const router: ChildRouteType[] = [
+export const groupRoutes = [
   {
-    method: 'post',
-    path: '/list',
-    action: groupList,
-    validator: groupListInterface
+    path: '/api/group',
+    child: groupManagementRouter
   },
   {
-    method: 'post',
-    path: '/detail',
-    action: groupDetail,
-    validator: groupDetailInterface
+    path: '/api/group/user',
+    child: groupUserRouter
   },
   {
-    method: 'post',
-    path: '/create',
-    action: groupCreate,
-    validator: groupCreateInterface
-  },
-  {
-    method: 'post',
-    path: '/modify',
-    action: groupModify,
-    validator: groupModifyInterface
-  },
-  {
-    method: 'post',
-    path: '/remove',
-    action: groupRemove,
-    validator: groupRemoveInterface
+    path: '/api/group/ledger',
+    child: groupLedgerRouter
   }
 ]
-
-export default router

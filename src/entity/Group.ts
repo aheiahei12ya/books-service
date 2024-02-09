@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm'
 
-import { Base } from '@/entity/Base'
+import { Base, BaseGroup } from '@/entity/Base'
 
 @Entity()
 export class Group extends Base {
@@ -60,4 +60,11 @@ export class GroupUser extends Base {
   permission!: string
 }
 
-export default [Group, GroupUser]
+@Entity()
+export class GroupLedger extends BaseGroup {
+  // 账本 id
+  @Column()
+  ledgerId?: string
+}
+
+export default [Group, GroupUser, GroupLedger]

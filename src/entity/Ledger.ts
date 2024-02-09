@@ -1,6 +1,6 @@
 import { Column, Entity } from 'typeorm'
 
-import { BaseGroup, BaseSort } from '@/entity/Base'
+import { BaseSort } from '@/entity/Base'
 
 @Entity()
 export class Ledger extends BaseSort {
@@ -27,11 +27,4 @@ export class Ledger extends BaseSort {
   share?: boolean
 }
 
-@Entity()
-export class GroupLedger extends BaseGroup {
-  // 账本 id
-  @Column()
-  ledgerId?: string
-}
-
-export default [Ledger, GroupLedger]
+export default [Ledger]

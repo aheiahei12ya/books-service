@@ -20,13 +20,13 @@ export abstract class Base {
 }
 
 export abstract class BaseGroup extends Base {
+  // 群组 id
+  @Column()
+  groupId?: string
+
   // 归属人id
   @Column()
   ownerId?: string
-
-  @Column('datetime')
-  // 加入时间
-  joinInTime?: number
 }
 
 export abstract class BaseBill extends Base {

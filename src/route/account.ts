@@ -1,26 +1,49 @@
-import { accountList } from '@/service/account'
+import {
+  accountCreate,
+  accountDetail,
+  accountList,
+  accountModify,
+  accountRemove
+} from '@/service/account'
+import {
+  accountCreateInterface,
+  accountDetailInterface,
+  accountListInterface,
+  accountModifyInterface,
+  accountRemoveInterface
+} from '@/service/account/interface'
 import { ChildRouteType } from '@/type/route'
 
 const router: ChildRouteType[] = [
   {
     method: 'post',
     path: '/list',
-    action: accountList
+    action: accountList,
+    validator: accountListInterface
   },
   {
     method: 'post',
     path: '/create',
-    action: accountList
+    action: accountCreate,
+    validator: accountCreateInterface
+  },
+  {
+    method: 'post',
+    path: '/detail',
+    action: accountDetail,
+    validator: accountDetailInterface
   },
   {
     method: 'post',
     path: '/modify',
-    action: accountList
+    action: accountModify,
+    validator: accountModifyInterface
   },
   {
     method: 'post',
     path: '/remove',
-    action: accountList
+    action: accountRemove,
+    validator: accountRemoveInterface
   }
 ]
 

@@ -3,7 +3,7 @@ import { Column, Entity } from 'typeorm'
 import { BaseGroup, BaseSort } from '@/entity/Base'
 
 @Entity()
-class Account extends BaseSort {
+export class Account extends BaseSort {
   // 用户 id
   @Column()
   userId?: string
@@ -18,17 +18,27 @@ class Account extends BaseSort {
   })
   balance?: string
 
+  // 账单日
+  @Column('datetime', {
+    nullable: true
+  })
+  billDate?: number
+
   // 还款时间
-  @Column('datetime')
+  @Column('datetime', {
+    nullable: true
+  })
   repaymentTime?: number
 
-  // 还款状态
-  @Column()
-  repaymentStatus?: number
+  // 上次还款时间
+  @Column('datetime', {
+    nullable: true
+  })
+  lastRepaymentTime?: number
 
   // 账户状态
   @Column()
-  accountStatus?: number
+  status?: number
 
   // 总计收入
   @Column({
@@ -43,12 +53,14 @@ class Account extends BaseSort {
   totalExpense?: string
 
   // 重置时间
-  @Column('datetime')
+  @Column('datetime', {
+    nullable: true
+  })
   resetTime?: number
 }
 
 @Entity()
-class GroupAccount extends BaseGroup {
+export class GroupAccount extends BaseGroup {
   // 账户 id
   @Column()
   accountId?: string

@@ -4,6 +4,7 @@ import categoryRouter from './category'
 import channelRouter from './channel'
 import expenseRouter from './expense'
 import firstLevelSortRouter from './firstLevelSort'
+import groupRouter from './group'
 import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
@@ -74,5 +75,9 @@ export const routes = [
   {
     path: '/api/secondLevelSort',
     child: secondLevelSortRouter
+  },
+  {
+    path: '/api/group',
+    child: groupRouter
   }
 ]

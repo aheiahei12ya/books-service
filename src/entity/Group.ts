@@ -3,7 +3,7 @@ import { Column, Entity } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class Group extends Base {
+export class Group extends Base {
   // 类型
   @Column()
   type?: number
@@ -26,13 +26,17 @@ class Group extends Base {
 
   // 需要审批加入
   @Column()
-  joinPermission?: number
+  joinPermission?: boolean
 
   // 邀请加入密钥
   @Column({
     length: 64
   })
   inviteKey?: string
+
+  // 创建人 id
+  @Column()
+  creatorId?: string
 }
 
 export default [Group]

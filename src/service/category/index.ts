@@ -4,6 +4,7 @@ import { uuidv7 } from 'uuidv7'
 import { AppDataSource } from '@/data-source'
 import { Category } from '@/entity/BasicSort'
 import { getCategoryById } from '@/service/category/utils'
+import { checkLedgerExistsById } from '@/service/ledger/utils'
 import { checkUniqueToken } from '@/util'
 
 export const categoryList = async (req: Request, res: Response) => {
@@ -14,6 +15,7 @@ export const categoryList = async (req: Request, res: Response) => {
 
 export const categoryCreate = async (req: Request, res: Response) => {
   checkUniqueToken(req.body.token)
+  await checkLedgerExistsById(req.body.lid)
 
   const repository = AppDataSource.getRepository(Category)
 
@@ -27,7 +29,9 @@ export const categoryCreate = async (req: Request, res: Response) => {
 
     name: req.body.name,
     icon: req.body.icon,
-    rank: req.body.rank
+    rank: req.body.rank,
+
+    ledgerId: req.body.lid
   })
 
   await repository.save(category)

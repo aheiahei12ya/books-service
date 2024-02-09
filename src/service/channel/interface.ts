@@ -9,7 +9,6 @@ export const channelCreateInterface = [
   body('icon').isString(),
   body('rank').isNumeric(),
 
-  body('lid').isString(),
   body('categoryId').isString()
 ]
 

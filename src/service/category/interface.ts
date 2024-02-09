@@ -7,20 +7,23 @@ export const categoryCreateInterface = [
 
   body('name').isString(),
   body('icon').isString(),
-  body('rank').isNumeric()
+  body('rank').isNumeric(),
+
+  body('lid').isString()
 ]
 
 export const categoryDetailInterface = [
-  cookie('uid').isString(),
+  body('lid').isNumeric(),
   body('id').isString()
 ]
 
 export const categoryModifyInterface = [
-  body('token').isString(),
+  body('lid').isNumeric(),
   body('id').isString()
 ]
 
 export const categoryRemoveInterface = [
   body('token').isString(),
+  body('lid').isNumeric(),
   body('id').isString()
 ]

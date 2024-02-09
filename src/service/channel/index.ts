@@ -32,7 +32,6 @@ export const channelCreate = async (req: Request, res: Response) => {
     icon: req.body.icon,
     rank: req.body.rank,
 
-    ledgerId: req.body.lid,
     categoryId: req.body.categoryId
   })
 

@@ -3,7 +3,7 @@ import { Column, Entity } from 'typeorm'
 import { BaseSort, BaseSortRelation } from '@/entity/Base'
 
 @Entity()
-export class Category extends BaseSort {}
+export class Category extends BaseSortRelation {}
 
 @Entity()
 export class FirstLevelSort extends BaseSort {
@@ -27,7 +27,7 @@ export class Method extends BaseSort {
 }
 
 @Entity()
-export class Channel extends BaseSortRelation {
+export class Channel extends BaseSort {
   // 分类 id
   @Column()
   categoryId?: number

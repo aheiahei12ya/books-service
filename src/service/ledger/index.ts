@@ -4,6 +4,7 @@ import { LEDGER_STATUS } from '@/constant'
 import { AppDataSource } from '@/data-source'
 import { Ledger } from '@/entity/Ledger'
 import { getLedgerById } from '@/service/ledger/utils'
+import { checkUserExistsById } from '@/service/user/utils'
 import { createUUIDWithUID } from '@/util'
 
 export const ledgerList = async (req: Request, res: Response) => {
@@ -15,6 +16,8 @@ export const ledgerList = async (req: Request, res: Response) => {
 }
 
 export const ledgerCreate = async (req: Request, res: Response) => {
+  await checkUserExistsById(req.cookies.uid)
+
   const repository = AppDataSource.getRepository(Ledger)
 
   let uuid = createUUIDWithUID(req.cookies.uid)
@@ -26,10 +29,13 @@ export const ledgerCreate = async (req: Request, res: Response) => {
   const ledger = repository.create({
     id: uuid,
     userId: req.cookies.uid,
-    type: req.body.type,
+
     name: req.body.name,
     icon: req.body.icon,
-    ledgerStatus: LEDGER_STATUS.ACTIVATED,
+    rank: req.body.rank,
+
+    type: req.body.type,
+    status: LEDGER_STATUS.ACTIVATED,
     share: req.body.share
   })
 
@@ -41,12 +47,12 @@ export const ledgerCreate = async (req: Request, res: Response) => {
 }
 
 export const ledgerDetail = async (req: Request, res: Response) => {
-  const { ledgerObj } = await getLedgerById(req.body.id)
+  const { ledgerObj } = await getLedgerById(req)
   return ledgerObj
 }
 
 export const ledgerModify = async (req: Request, res: Response) => {
-  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.id)
+  const { ledgerObj, ledgerRepository } = await getLedgerById(req)
   const newLedger = ledgerRepository.merge(ledgerObj, req.body)
   await ledgerRepository.save(newLedger)
   return {
@@ -55,7 +61,7 @@ export const ledgerModify = async (req: Request, res: Response) => {
 }
 
 export const ledgerRemove = async (req: Request, res: Response) => {
-  const { ledgerObj, ledgerRepository } = await getLedgerById(req.body.id)
+  const { ledgerObj, ledgerRepository } = await getLedgerById(req)
   await ledgerRepository.remove(ledgerObj)
   return {
     message: '账本已删除'

@@ -5,10 +5,12 @@ export const ledgerListInterface = [cookie('uid').isString()]
 export const ledgerCreateInterface = [
   cookie('uid').isString(),
 
-  body('type').isNumeric(),
   body('name').isString(),
   body('icon').isString(),
-  body('ledgerStatus').isNumeric(),
+  body('rank').isNumeric(),
+
+  body('type').isNumeric(),
+  body('status').isNumeric(),
   body('share').isBoolean()
 ]
 

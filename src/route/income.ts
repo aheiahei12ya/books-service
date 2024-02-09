@@ -1,10 +1,11 @@
-import { expenseInitial } from '@/services/expense'
+import { incomeInitial } from '@/service/income'
 
 const router = [
   {
     method: 'post',
     path: '/initial',
-    action: expenseInitial
+    action: incomeInitial
   }
 ]
+
 export default router

@@ -1,4 +1,4 @@
-import { categoryList } from '@/services/category'
+import { categoryList } from '@/service/category'
 
 const router = [
   {

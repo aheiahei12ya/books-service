@@ -1,5 +1,5 @@
-import { accountList } from '@/services/account'
-import { ChildRouteType } from '@/types/route'
+import { accountList } from '@/service/account'
+import { ChildRouteType } from '@/type/route'
 
 const router: ChildRouteType[] = [
   {

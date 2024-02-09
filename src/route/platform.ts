@@ -1,10 +1,11 @@
-import { methodList } from '@/services/method'
+import { platformList } from '@/service/platform'
 
 const router = [
   {
     method: 'post',
     path: '/list',
-    action: methodList
+    action: platformList
   }
 ]
+
 export default router

@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 // import { AppDataSource } from '@/data-source'
 // import Account from '@/entity/Account'
-import { AccountType } from '@/services/account/types'
+import { AccountType } from '@/service/account/types'
 
 const accountList = async (
   req: Request,

@@ -7,8 +7,8 @@ import createError from 'http-errors'
 import logger from 'morgan'
 
 import { AppDataSource } from '@/data-source'
-import { routes } from '@/routes'
-import { handler } from '@/utils/response'
+import { routes } from '@/route'
+import { handler } from '@/util/response'
 
 const app = express()
 

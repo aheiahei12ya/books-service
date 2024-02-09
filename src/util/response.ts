@@ -14,7 +14,7 @@ export const handler = {
       return res.status(400).json({ errors: errors.array() })
     }
 
-    let result, success, message
+    let result, success, message, errorCode
 
     try {
       result = await target(req, res)
@@ -28,13 +28,14 @@ export const handler = {
       if (Reflect.has(result, 'message')) {
         Reflect.deleteProperty(result, 'message')
       }
-    } catch (errorMessage) {
+    } catch (errCode) {
       success = false
-      message = errorMessage
+      errorCode = errCode
     } finally {
       res.send({
         success: success,
         message: message,
+        errorCode,
         data: result
       })
     }

@@ -4,14 +4,14 @@ import {
   userLogin,
   userModify,
   userRemove
-} from '@/services/user'
+} from '@/service/user'
 import {
   userCreateInterface,
   userInfoInterface,
   userLoginInterface,
   userModifyInterface,
   userRemoveInterface
-} from '@/services/user/interface'
+} from '@/service/user/interface'
 
 const router = [
   {

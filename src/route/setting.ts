@@ -1,10 +1,10 @@
-import { shortcutList } from '@/services/shortcut'
+import { settingList } from '@/service/setting'
 
 const router = [
   {
     method: 'post',
     path: '/list',
-    action: shortcutList
+    action: settingList
   }
 ]
 export default router

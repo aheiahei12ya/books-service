@@ -1,4 +1,4 @@
-import { BaseResponse } from '@/types/service'
+import { BaseResponse } from '@/type/service'
 
 export type AccountType = {
   id: number

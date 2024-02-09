@@ -3,12 +3,12 @@ import {
   expenseTimes,
   historyToday,
   methodReminder
-} from '@/services/statistic'
+} from '@/service/statistic'
 import {
   balanceTrend,
   expenseHistogram,
   expenseTrend
-} from '@/services/statistic/trend'
+} from '@/service/statistic/trend'
 
 const router = [
   {

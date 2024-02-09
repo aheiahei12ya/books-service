@@ -1,3 +1,4 @@
+import { accountError } from '@/constant'
 import { AppDataSource } from '@/data-source'
 import { User } from '@/entity/User'
 
@@ -7,7 +8,7 @@ export const getUserById = async (uid: string) => {
     id: uid
   })
   if (!userObj) {
-    throw '用户不存在'
+    throw accountError
   }
   return { userObj, userRepository }
 }

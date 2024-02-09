@@ -1,9 +1,10 @@
 import { Request, Response } from 'express'
 import { uuidv7 } from 'uuidv7'
 
+import { accountError, passwordError } from '@/constant'
 import { AppDataSource } from '@/data-source'
 import { User } from '@/entity/User'
-import { getUserById } from '@/services/user/utils'
+import { getUserById } from '@/service/user/utils'
 
 export const userLogin = async (req: Request, res: Response) => {
   const userRepository = AppDataSource.getRepository(User)
@@ -13,7 +14,7 @@ export const userLogin = async (req: Request, res: Response) => {
   })
 
   if (!userObj) {
-    throw '用户不存在'
+    throw accountError
   }
 
   if (
@@ -26,7 +27,7 @@ export const userLogin = async (req: Request, res: Response) => {
       uid: userObj.id
     }
   } else {
-    throw '用户名或密码错误'
+    throw passwordError
   }
 }
 

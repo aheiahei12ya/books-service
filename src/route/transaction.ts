@@ -1,4 +1,4 @@
-import { expenseList, yearList } from '@/services/transaction'
+import { expenseList, yearList } from '@/service/transaction'
 
 const router = [
   {

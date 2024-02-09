@@ -7,6 +7,7 @@ import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
 import platformRouter from './platform'
+import secondLevelSortRouter from './secondLevelSort'
 import settingRouter from './setting'
 import shortcutRouter from './shortcut'
 import statisticRouter from './statistic'
@@ -70,4 +71,8 @@ export const routes = [
     path: '/api/firstLevelSort',
     child: firstLevelSortRouter
   },
+  {
+    path: '/api/secondLevelSort',
+    child: secondLevelSortRouter
+  }
 ]

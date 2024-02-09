@@ -5,6 +5,10 @@ export const accountListInterface = [cookie('uid').isString()]
 export const accountCreateInterface = [
   cookie('uid').isString(),
 
+  body('name').isString(),
+  body('icon').isString(),
+  body('rank').isNumeric(),
+
   body('type').isNumeric(),
   body('balance').isString(),
   body('billDate').isNumeric(),

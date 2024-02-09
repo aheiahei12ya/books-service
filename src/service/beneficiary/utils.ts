@@ -7,8 +7,7 @@ export const getBeneficiaryById = async (req: Request) => {
   const beneficiaryRepository = AppDataSource.getRepository(Beneficiary)
   const beneficiaryObj = await beneficiaryRepository.findOneBy({
     id: req.body.id,
-    ledgerId: req.body.lid,
-    userId: req.cookies.uid
+    ledgerId: req.body.lid
   })
   if (!beneficiaryObj) {
     throw '受益人不存在'

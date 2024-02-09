@@ -10,7 +10,6 @@ export const beneficiaryList = async (req: Request, res: Response) => {
   const repository = AppDataSource.getRepository(Beneficiary)
 
   return await repository.findBy({
-    userId: req.cookies.uid,
     ledgerId: req.body.lid
   })
 }
@@ -33,7 +32,6 @@ export const beneficiaryCreate = async (req: Request, res: Response) => {
     icon: req.body.icon,
     rank: req.body.rank,
 
-    userId: req.cookies.uid,
     ledgerId: req.body.lid,
 
     relationship: req.body.relationship

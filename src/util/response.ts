@@ -28,14 +28,13 @@ export const handler = {
       if (Reflect.has(result, 'message')) {
         Reflect.deleteProperty(result, 'message')
       }
-    } catch (errCode) {
+    } catch (errorMessage) {
       success = false
-      errorCode = errCode
+      message = errorMessage
     } finally {
       res.send({
         success: success,
         message: message,
-        errorCode,
         data: result
       })
     }

@@ -33,7 +33,7 @@ export class Channel extends BaseSortRelation {
 export class Beneficiary extends BaseSortRelation {
   // 关系
   @Column()
-  relationship?: number
+  relationship?: string
 }
 
 export default [

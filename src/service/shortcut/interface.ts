@@ -1,11 +1,11 @@
 import { body, cookie } from 'express-validator'
 
-export const ledgerSettingListInterface = [
+export const shortcutListInterface = [
   cookie('uid').isString(),
   body('lid').isString()
 ]
 
-export const ledgerSettingCreateInterface = [
+export const shortcutCreateInterface = [
   cookie('uid').isString(),
   body('lid').isString(),
   body('categoryId').isString(),
@@ -17,17 +17,17 @@ export const ledgerSettingCreateInterface = [
   body('secondLevelSortId').isString()
 ]
 
-export const ledgerSettingDetailInterface = [
+export const shortcutDetailInterface = [
   body('lid').isString(),
   body('id').isString()
 ]
 
-export const ledgerSettingModifyInterface = [
+export const shortcutModifyInterface = [
   body('lid').isString(),
   body('id').isString()
 ]
 
-export const ledgerSettingRemoveInterface = [
+export const shortcutRemoveInterface = [
   body('lid').isString(),
   body('id').isString()
 ]

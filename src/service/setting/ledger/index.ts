@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 
 import { AppDataSource } from '@/data-source'
 import { LedgerSetting } from '@/entity/Setting'
+import { checkLedgerExistsById } from '@/service/ledger/utils'
 import { getLedgerSettingById } from '@/service/setting/utils'
 import { createUUIDWithUID } from '@/util'
 
@@ -15,6 +16,8 @@ export const ledgerSettingList = async (req: Request, res: Response) => {
 }
 
 export const ledgerSettingCreate = async (req: Request, res: Response) => {
+  await checkLedgerExistsById(req.body.ledgerId)
+
   const repository = AppDataSource.getRepository(LedgerSetting)
 
   let uuid = createUUIDWithUID(req.cookies.uid)

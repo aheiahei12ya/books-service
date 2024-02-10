@@ -3,7 +3,7 @@ import { Column, Entity } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class Shortcut extends Base {
+export class Shortcut extends Base {
   // 用户 id
   @Column()
   userId?: string

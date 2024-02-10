@@ -1,233 +1,70 @@
-const shortcutList = async (req: any, res: Response) => {
+import { Request, Response } from 'express'
+
+import { AppDataSource } from '@/data-source'
+import { Shortcut } from '@/entity/Shortcut'
+import { checkLedgerExistsById } from '@/service/ledger/utils'
+import { getShortcutById } from '@/service/shortcut/utils'
+import { createUUIDWithUID } from '@/util'
+
+export const shortcutList = async (req: Request, res: Response) => {
+  const repository = AppDataSource.getRepository(Shortcut)
+
+  return await repository.findBy({
+    userId: req.cookies.uid,
+    ledgerId: req.body.lid
+  })
+}
+
+export const shortcutCreate = async (req: Request, res: Response) => {
+  await checkLedgerExistsById(req.body.ledgerId)
+
+  const repository = AppDataSource.getRepository(Shortcut)
+
+  let uuid = createUUIDWithUID(req.cookies.uid)
+
+  while (await repository.existsBy({ id: uuid })) {
+    uuid = createUUIDWithUID(req.cookies.uid)
+  }
+
+  const shortcut = repository.create({
+    id: uuid,
+
+    userId: req.cookies.uid,
+    ledgerId: req.body.lid,
+    categoryId: req.body.categoryId,
+    accountId: req.body.accountId,
+    methodId: req.body.methodId,
+    beneficiaryId: req.body.beneficiaryId,
+    channelId: req.body.channelId,
+    firstLevelSortId: req.body.firstLevelSortId,
+    secondLevelSortId: req.body.secondLevelSortId
+  })
+
+  await repository.save(shortcut)
+
   return {
-    shortcutList: [
-      {
-        id: 3,
-        name: '滕州电费',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 9,
-          name: '住房开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 39,
-          name: '电费',
-          key: 'daily'
-        },
-        note: '滕州电费'
-      },
-      {
-        id: 6,
-        name: '水果',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'huabei'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'offline'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 14,
-          name: '水果',
-          key: 'fruit'
-        },
-        note: '水果-日常'
-      },
-      {
-        id: 4,
-        name: '淘宝',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'huabei'
-        },
-        platform: {
-          id: 1,
-          name: '淘宝天猫',
-          key: 'taobao'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 12,
-          name: '线上',
-          key: 'online'
-        },
-        note: ''
-      },
-      {
-        id: 5,
-        name: '午饭',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'huabei'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'offline'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 16,
-          name: '外卖',
-          key: 'daily'
-        },
-        note: '午饭'
-      },
-      {
-        id: 7,
-        name: '晚饭',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 16,
-          name: '外卖',
-          key: 'daily'
-        },
-        note: '晚饭'
-      },
-      {
-        id: 8,
-        name: '房租',
-        account: {
-          id: 2,
-          name: '余额',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 9,
-          name: '住房开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 37,
-          name: '房租',
-          key: 'daily'
-        },
-        note: '房租'
-      },
-      {
-        id: 2,
-        name: '优鲜',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 13,
-          name: '超市',
-          key: 'daily'
-        },
-        note: '每日优鲜'
-      },
-      {
-        id: 1,
-        name: '盒马',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 13,
-          name: '超市',
-          key: 'daily'
-        },
-        note: '盒马鲜生'
-      },
-      {
-        id: 9,
-        name: '半日达',
-        account: {
-          id: 5,
-          name: '花呗',
-          key: 'daily'
-        },
-        platform: {
-          id: 5,
-          name: '线下',
-          key: 'daily'
-        },
-        category: {
-          id: 3,
-          name: '日常开销',
-          key: 'daily'
-        },
-        subcategory: {
-          id: 13,
-          name: '超市',
-          key: 'daily'
-        },
-        note: '天猫超市半日达'
-      }
-    ]
+    id: shortcut.id
   }
 }
 
-export { shortcutList }
+export const shortcutDetail = async (req: Request, res: Response) => {
+  const { shortcutObj } = await getShortcutById(req)
+  return shortcutObj
+}
+
+export const shortcutModify = async (req: Request, res: Response) => {
+  const { shortcutObj, shortcutRepository } = await getShortcutById(req)
+  const newShortcut = shortcutRepository.merge(shortcutObj, req.body)
+  await shortcutRepository.save(newShortcut)
+  return {
+    message: '渠道信息修改成功'
+  }
+}
+
+export const shortcutRemove = async (req: Request, res: Response) => {
+  const { shortcutObj, shortcutRepository } = await getShortcutById(req)
+  await shortcutRepository.remove(shortcutObj)
+  return {
+    message: '渠道信息已删除'
+  }
+}

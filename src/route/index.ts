@@ -11,7 +11,7 @@ import methodRouter from './method'
 import secondLevelSortRouter from './secondLevelSort'
 import { settingRoutes } from './setting'
 import shortcutRouter from './shortcut'
-import statisticRouter from './statistic'
+import { statisticRoutes } from './statistic'
 import transactionRouter from './transaction'
 import userRouter from './user'
 
@@ -49,10 +49,6 @@ export const routes = [
     child: shortcutRouter
   },
   {
-    path: '/api/statistics',
-    child: statisticRouter
-  },
-  {
     path: '/api/user',
     child: userRouter
   },
@@ -73,5 +69,6 @@ export const routes = [
     child: secondLevelSortRouter
   },
   ...groupRoutes,
-  ...settingRoutes
+  ...settingRoutes,
+  ...statisticRoutes
 ]

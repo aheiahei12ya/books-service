@@ -3,7 +3,11 @@ import { Column, Entity } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class MonthlyStatistic extends Base {
+export class MonthlyStatistic extends Base {
+  // 账本 id
+  @Column()
+  ledgerId?: string
+
   // 年份
   @Column()
   year?: string
@@ -14,7 +18,7 @@ class MonthlyStatistic extends Base {
 
   // 月度开销
   @Column()
-  expense?: number
+  expense?: string
 
   // 月度收入
   @Column()

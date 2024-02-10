@@ -2,9 +2,8 @@ import accountRouter from './account'
 import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
 import channelRouter from './channel'
-import expenseRouter from './expense'
+import { fundRoutes } from './fund'
 import { groupRoutes } from './group'
-import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
 import { settingRoutes } from './setting'
@@ -26,14 +25,6 @@ export const routes = [
   {
     path: '/api/category',
     child: categoryRouter
-  },
-  {
-    path: '/api/expense',
-    child: expenseRouter
-  },
-  {
-    path: '/api/income',
-    child: incomeRouter
   },
   {
     path: '/api/method',
@@ -59,6 +50,7 @@ export const routes = [
     path: '/api/beneficiary',
     child: beneficiaryRouter
   },
+  ...fundRoutes,
   ...sortRoutes,
   ...groupRoutes,
   ...settingRoutes,

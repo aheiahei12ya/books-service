@@ -1,4 +1,4 @@
-import { incomeInitial } from '@/service/income'
+import { incomeInitial } from '@/service/fund/income'
 
 const router = [
   {

@@ -9,7 +9,7 @@ import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
 import secondLevelSortRouter from './secondLevelSort'
-import settingRouter from './setting'
+import { settingRoutes } from './setting'
 import shortcutRouter from './shortcut'
 import statisticRouter from './statistic'
 import transactionRouter from './transaction'
@@ -45,10 +45,6 @@ export const routes = [
     child: channelRouter
   },
   {
-    path: '/api/setting',
-    child: settingRouter
-  },
-  {
     path: '/api/shortcut',
     child: shortcutRouter
   },
@@ -76,5 +72,6 @@ export const routes = [
     path: '/api/secondLevelSort',
     child: secondLevelSortRouter
   },
-  ...groupRoutes
+  ...groupRoutes,
+  ...settingRoutes
 ]

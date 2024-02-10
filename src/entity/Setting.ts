@@ -3,14 +3,10 @@ import { Column, Entity } from 'typeorm'
 import { Base } from '@/entity/Base'
 
 @Entity()
-class Setting extends Base {
+export class UserSetting extends Base {
   // 用户 id
   @Column()
   userId?: string
-
-  // 默认类别 id
-  @Column()
-  categoryId?: string
 
   // 默认收入账本 id
   @Column()
@@ -19,6 +15,29 @@ class Setting extends Base {
   // 默认支出账本 id
   @Column()
   expenseLedgerId?: string
+
+  // 默认模式（先知/普通）
+  @Column()
+  mode?: boolean
+
+  // 自动记录（先知模式自动开启）
+  @Column()
+  automatic?: boolean
+}
+
+@Entity()
+export class LedgerSetting extends Base {
+  // 用户 id
+  @Column()
+  userId?: string
+
+  // 账本 id
+  @Column()
+  ledgerId?: string
+
+  // 默认类别 id
+  @Column()
+  categoryId?: string
 
   // 默认账户 id
   @Column()
@@ -43,14 +62,6 @@ class Setting extends Base {
   // 默认二级分类 id
   @Column()
   secondLevelSortId?: string
-
-  // 默认模式（先知/普通）
-  @Column()
-  mode?: boolean
-
-  // 自动记录（先知模式自动开启）
-  @Column()
-  automatic?: boolean
 }
 
-export default [Setting]
+export default [UserSetting, LedgerSetting]

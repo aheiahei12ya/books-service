@@ -1,11 +1,10 @@
 import { Request, Response } from 'express'
-import { uuidv7 } from 'uuidv7'
 
 import { AppDataSource } from '@/data-source'
 import { Category } from '@/entity/BasicSort'
 import { getCategoryById } from '@/service/category/utils'
 import { checkLedgerExistsById } from '@/service/ledger/utils'
-import { checkUniqueToken } from '@/util'
+import { checkUniqueToken, createUUIDWithUID } from '@/util'
 
 export const categoryList = async (req: Request, res: Response) => {
   const repository = AppDataSource.getRepository(Category)
@@ -19,9 +18,9 @@ export const categoryCreate = async (req: Request, res: Response) => {
 
   const repository = AppDataSource.getRepository(Category)
 
-  let uuid = uuidv7()
+  let uuid = createUUIDWithUID(req.body.token)
   while (await repository.existsBy({ id: uuid })) {
-    uuid = uuidv7()
+    uuid = createUUIDWithUID(req.body.token)
   }
 
   const category = repository.create({

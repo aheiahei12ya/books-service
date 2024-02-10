@@ -3,14 +3,13 @@ import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
 import channelRouter from './channel'
 import expenseRouter from './expense'
-import firstLevelSortRouter from './firstLevelSort'
 import { groupRoutes } from './group'
 import incomeRouter from './income'
 import ledgerRouter from './ledger'
 import methodRouter from './method'
-import secondLevelSortRouter from './secondLevelSort'
 import { settingRoutes } from './setting'
 import shortcutRouter from './shortcut'
+import { sortRoutes } from './sort'
 import { statisticRoutes } from './statistic'
 import transactionRouter from './transaction'
 import userRouter from './user'
@@ -60,14 +59,7 @@ export const routes = [
     path: '/api/beneficiary',
     child: beneficiaryRouter
   },
-  {
-    path: '/api/firstLevelSort',
-    child: firstLevelSortRouter
-  },
-  {
-    path: '/api/secondLevelSort',
-    child: secondLevelSortRouter
-  },
+  ...sortRoutes,
   ...groupRoutes,
   ...settingRoutes,
   ...statisticRoutes

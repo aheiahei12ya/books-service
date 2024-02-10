@@ -4,14 +4,14 @@ import {
   secondLevelSortList,
   secondLevelSortModify,
   secondLevelSortRemove
-} from '@/service/secondLevelSort'
+} from '@/service/sort/secondLevelSort'
 import {
   secondLevelSortCreateInterface,
   secondLevelSortDetailInterface,
   secondLevelSortListInterface,
   secondLevelSortModifyInterface,
   secondLevelSortRemoveInterface
-} from '@/service/secondLevelSort/interface'
+} from '@/service/sort/secondLevelSort/interface'
 import { ChildRouteType } from '@/type/route'
 
 const router: ChildRouteType[] = [

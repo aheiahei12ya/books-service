@@ -2,8 +2,8 @@ import { Request, Response } from 'express'
 
 import { AppDataSource } from '@/data-source'
 import { SecondLevelSort } from '@/entity/BasicSort'
-import { checkFirstLevelSortExistsById } from '@/service/firstLevelSort/utils'
-import { getSecondLevelSortById } from '@/service/secondLevelSort/utils'
+import { checkFirstLevelSortExistsById } from '@/service/sort/firstLevelSort/utils'
+import { getSecondLevelSortById } from '@/service/sort/secondLevelSort/utils'
 import { createUUIDWithUID } from '@/util'
 
 export const secondLevelSortList = async (req: Request, res: Response) => {

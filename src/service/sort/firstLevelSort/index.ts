@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import { AppDataSource } from '@/data-source'
 import { FirstLevelSort } from '@/entity/BasicSort'
 import { checkCategoryExistsById } from '@/service/category/utils'
-import { getFirstLevelSortById } from '@/service/firstLevelSort/utils'
+import { getFirstLevelSortById } from '@/service/sort/firstLevelSort/utils'
 import { createUUIDWithUID } from '@/util'
 
 export const firstLevelSortList = async (req: Request, res: Response) => {

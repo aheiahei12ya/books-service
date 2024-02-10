@@ -4,14 +4,14 @@ import {
   firstLevelSortList,
   firstLevelSortModify,
   firstLevelSortRemove
-} from '@/service/firstLevelSort'
+} from '@/service/sort/firstLevelSort'
 import {
   firstLevelSortCreateInterface,
   firstLevelSortDetailInterface,
   firstLevelSortListInterface,
   firstLevelSortModifyInterface,
   firstLevelSortRemoveInterface
-} from '@/service/firstLevelSort/interface'
+} from '@/service/sort/firstLevelSort/interface'
 import { ChildRouteType } from '@/type/route'
 
 const router: ChildRouteType[] = [

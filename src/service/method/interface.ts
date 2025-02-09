@@ -1,6 +1,6 @@
 import { body, cookie } from 'express-validator'
 
-export const methodListInterface = [body('methodId').isString()]
+export const methodListInterface = [body('categoryId').isString()]
 
 export const methodCreateInterface = [
   cookie('uid').isString(),
@@ -9,20 +9,20 @@ export const methodCreateInterface = [
   body('icon').isString(),
   body('rank').isNumeric(),
 
-  body('methodId').isString()
+  body('categoryId').isString()
 ]
 
 export const methodDetailInterface = [
-  body('methodId').isString(),
+  body('categoryId').isString(),
   body('id').isString()
 ]
 
 export const methodModifyInterface = [
-  body('methodId').isString(),
+  body('categoryId').isString(),
   body('id').isString()
 ]
 
 export const methodRemoveInterface = [
-  body('methodId').isString(),
+  body('categoryId').isString(),
   body('id').isString()
 ]

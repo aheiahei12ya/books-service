@@ -9,7 +9,7 @@ export class Category extends BaseSortRelation {}
 export class Sort extends BaseSort {
   // 分类 id
   @Column()
-  sortId?: number
+  categoryId?: number
 
   @Column({
     length: 8
@@ -21,7 +21,7 @@ export class Sort extends BaseSort {
 export class Method extends BaseSort {
   // 分类 id
   @Column()
-  methodId?: number
+  categoryId?: number
 }
 
 export default [Method, Category, Sort]

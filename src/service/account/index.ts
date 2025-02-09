@@ -32,6 +32,7 @@ export const accountCreate = async (req: Request, res: Response) => {
     name: req.body.name,
     icon: req.body.icon,
     rank: req.body.rank,
+    usage: 0,
 
     userId: req.cookies.uid,
     type: req.body.type,

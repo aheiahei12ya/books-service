@@ -2,20 +2,19 @@ import { Request, Response } from 'express'
 
 import { AppDataSource } from '@/data-source'
 import { Method } from '@/entity/BasicSort'
-import { checkCategoryExistsById } from '@/service/category/utils'
-import { getMethodById } from '@/service/method/utils'
+import { checkMethodExistsById, getMethodById } from '@/service/method/utils'
 import { createUUIDWithUID } from '@/util'
 
 export const methodList = async (req: Request, res: Response) => {
   const repository = AppDataSource.getRepository(Method)
 
   return await repository.findBy({
-    categoryId: req.body.categoryId
+    methodId: req.body.methodId
   })
 }
 
 export const methodCreate = async (req: Request, res: Response) => {
-  await checkCategoryExistsById(req.body.categoryId)
+  await checkMethodExistsById(req.body.methodId)
 
   const repository = AppDataSource.getRepository(Method)
 
@@ -31,8 +30,9 @@ export const methodCreate = async (req: Request, res: Response) => {
     name: req.body.name,
     icon: req.body.icon,
     rank: req.body.rank,
+    usage: 0,
 
-    categoryId: req.body.categoryId
+    methodId: req.body.methodId
   })
 
   await repository.save(method)

@@ -2,20 +2,19 @@ import { Request, Response } from 'express'
 
 import { AppDataSource } from '@/data-source'
 import { Sort } from '@/entity/BasicSort'
-import { checkCategoryExistsById } from '@/service/category/utils'
-import { getSortById } from '@/service/sort/utils'
+import { checkSortExistsById, getSortById } from '@/service/sort/utils'
 import { createUUIDWithUID } from '@/util'
 
 export const sortList = async (req: Request, res: Response) => {
   const repository = AppDataSource.getRepository(Sort)
 
   return await repository.findBy({
-    categoryId: req.body.categoryId
+    sortId: req.body.sortId
   })
 }
 
 export const sortCreate = async (req: Request, res: Response) => {
-  await checkCategoryExistsById(req.body.categoryId)
+  await checkSortExistsById(req.body.sortId)
 
   const repository = AppDataSource.getRepository(Sort)
 
@@ -31,8 +30,10 @@ export const sortCreate = async (req: Request, res: Response) => {
     name: req.body.name,
     icon: req.body.icon,
     rank: req.body.rank,
+    usage: 0,
+    color: req.body.color,
 
-    categoryId: req.body.categoryId
+    sortId: req.body.sortId
   })
 
   await repository.save(sort)
@@ -48,12 +49,8 @@ export const sortDetail = async (req: Request, res: Response) => {
 }
 
 export const sortModify = async (req: Request, res: Response) => {
-  const { sortObj, sortRepository } =
-    await getSortById(req)
-  const newSort = sortRepository.merge(
-    sortObj,
-    req.body
-  )
+  const { sortObj, sortRepository } = await getSortById(req)
+  const newSort = sortRepository.merge(sortObj, req.body)
   await sortRepository.save(newSort)
   return {
     message: '一级类别信息修改成功'
@@ -61,8 +58,7 @@ export const sortModify = async (req: Request, res: Response) => {
 }
 
 export const sortRemove = async (req: Request, res: Response) => {
-  const { sortObj, sortRepository } =
-    await getSortById(req)
+  const { sortObj, sortRepository } = await getSortById(req)
   await sortRepository.remove(sortObj)
   return {
     message: '一级类别已删除'

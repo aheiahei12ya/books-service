@@ -29,6 +29,7 @@ export const categoryCreate = async (req: Request, res: Response) => {
     name: req.body.name,
     icon: req.body.icon,
     rank: req.body.rank,
+    usage: 0,
 
     ledgerId: req.body.lid
   })

@@ -75,6 +75,10 @@ export abstract class BaseSort extends Base {
   // 序号
   @Column()
   rank?: number
+
+  // 使用次数
+  @Column()
+  usage?: number
 }
 
 export abstract class AutoRecordBill extends BaseBill {

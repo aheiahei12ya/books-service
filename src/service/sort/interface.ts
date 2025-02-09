@@ -1,6 +1,6 @@
 import { body, cookie } from 'express-validator'
 
-export const sortListInterface = [body('categoryId').isString()]
+export const sortListInterface = [body('sortId').isString()]
 
 export const sortCreateInterface = [
   cookie('uid').isString(),
@@ -8,21 +8,22 @@ export const sortCreateInterface = [
   body('name').isString(),
   body('icon').isString(),
   body('rank').isNumeric(),
+  body('color').isString(),
 
-  body('categoryId').isString()
+  body('sortId').isString()
 ]
 
 export const sortDetailInterface = [
-  body('categoryId').isString(),
+  body('sortId').isString(),
   body('id').isString()
 ]
 
 export const sortModifyInterface = [
-  body('categoryId').isString(),
+  body('sortId').isString(),
   body('id').isString()
 ]
 
 export const sortRemoveInterface = [
-  body('categoryId').isString(),
+  body('sortId').isString(),
   body('id').isString()
 ]

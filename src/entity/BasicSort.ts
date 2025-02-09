@@ -9,14 +9,19 @@ export class Category extends BaseSortRelation {}
 export class Sort extends BaseSort {
   // 分类 id
   @Column()
-  categoryId?: number
+  sortId?: number
+
+  @Column({
+    length: 8
+  })
+  color?: string
 }
 
 @Entity()
 export class Method extends BaseSort {
   // 分类 id
   @Column()
-  categoryId?: number
+  methodId?: number
 }
 
 export default [Method, Category, Sort]

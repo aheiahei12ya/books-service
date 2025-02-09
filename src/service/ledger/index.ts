@@ -33,6 +33,7 @@ export const ledgerCreate = async (req: Request, res: Response) => {
     name: req.body.name,
     icon: req.body.icon,
     rank: req.body.rank,
+    usage: 0,
 
     type: req.body.type,
     status: LEDGER_STATUS.ACTIVATED,

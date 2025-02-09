@@ -24,10 +24,6 @@ export class Shortcut extends Base {
   @Column()
   methodId?: string
 
-  // 受益人 id
-  @Column()
-  beneficiaryId?: string
-
   // 一级分类 id
   @Column()
   firstLevelSortId?: string

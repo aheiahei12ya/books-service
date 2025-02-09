@@ -47,10 +47,6 @@ export class LedgerSetting extends Base {
   @Column()
   methodId?: string
 
-  // 默认受益人 id
-  @Column()
-  beneficiaryId?: string
-
   // 默认一级分类 id
   @Column()
   firstLevelSortId?: string

@@ -1,5 +1,4 @@
 import accountRouter from './account'
-import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
 import { fundRoutes } from './fund'
 import { groupRoutes } from './group'
@@ -40,10 +39,6 @@ export const routes = [
   {
     path: '/api/ledger',
     child: ledgerRouter
-  },
-  {
-    path: '/api/beneficiary',
-    child: beneficiaryRouter
   },
   ...fundRoutes,
   ...sortRoutes,

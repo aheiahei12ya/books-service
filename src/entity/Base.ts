@@ -42,10 +42,6 @@ export abstract class BaseBill extends Base {
   @Column()
   categoryId?: string
 
-  // 受益人 id
-  @Column()
-  beneficiaryId?: string
-
   // 方式 id
   @Column()
   methodId?: string

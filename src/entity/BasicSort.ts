@@ -26,11 +26,4 @@ export class Method extends BaseSort {
   categoryId?: number
 }
 
-@Entity()
-export class Beneficiary extends BaseSortRelation {
-  // 关系
-  @Column()
-  relationship?: string
-}
-
-export default [Method, Category, FirstLevelSort, SecondLevelSort, Beneficiary]
+export default [Method, Category, FirstLevelSort, SecondLevelSort]

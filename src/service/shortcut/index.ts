@@ -34,7 +34,6 @@ export const shortcutCreate = async (req: Request, res: Response) => {
     categoryId: req.body.categoryId,
     accountId: req.body.accountId,
     methodId: req.body.methodId,
-    beneficiaryId: req.body.beneficiaryId,
     firstLevelSortId: req.body.firstLevelSortId,
     secondLevelSortId: req.body.secondLevelSortId
   })

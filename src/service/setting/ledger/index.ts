@@ -35,7 +35,6 @@ export const ledgerSettingCreate = async (req: Request, res: Response) => {
     accountId: req.body.accountId,
     methodId: req.body.methodId,
     beneficiaryId: req.body.beneficiaryId,
-    channelId: req.body.channelId,
     firstLevelSortId: req.body.firstLevelSortId,
     secondLevelSortId: req.body.secondLevelSortId
   })

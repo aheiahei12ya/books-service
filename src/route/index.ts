@@ -1,7 +1,6 @@
 import accountRouter from './account'
 import beneficiaryRouter from './beneficiary'
 import categoryRouter from './category'
-import channelRouter from './channel'
 import { fundRoutes } from './fund'
 import { groupRoutes } from './group'
 import ledgerRouter from './ledger'
@@ -29,10 +28,6 @@ export const routes = [
   {
     path: '/api/method',
     child: methodRouter
-  },
-  {
-    path: '/api/channel',
-    child: channelRouter
   },
   {
     path: '/api/shortcut',

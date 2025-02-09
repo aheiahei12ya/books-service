@@ -28,10 +28,6 @@ export class Shortcut extends Base {
   @Column()
   beneficiaryId?: string
 
-  // 渠道 id
-  @Column()
-  channelId?: string
-
   // 一级分类 id
   @Column()
   firstLevelSortId?: string

@@ -27,24 +27,10 @@ export class Method extends BaseSort {
 }
 
 @Entity()
-export class Channel extends BaseSort {
-  // 分类 id
-  @Column()
-  categoryId?: number
-}
-
-@Entity()
 export class Beneficiary extends BaseSortRelation {
   // 关系
   @Column()
   relationship?: string
 }
 
-export default [
-  Method,
-  Category,
-  FirstLevelSort,
-  SecondLevelSort,
-  Channel,
-  Beneficiary
-]
+export default [Method, Category, FirstLevelSort, SecondLevelSort, Beneficiary]

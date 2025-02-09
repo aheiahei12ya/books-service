@@ -57,8 +57,8 @@ export const accountDetail = async (req: Request, res: Response) => {
 
 export const accountModify = async (req: Request, res: Response) => {
   const { accountObj, accountRepository } = await getAccountById(req)
-  const newChannel = accountRepository.merge(accountObj, req.body)
-  await accountRepository.save(newChannel)
+  const newAccount = accountRepository.merge(accountObj, req.body)
+  await accountRepository.save(newAccount)
   return {
     message: '账户信息修改成功'
   }

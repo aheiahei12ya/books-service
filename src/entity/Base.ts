@@ -54,10 +54,6 @@ export abstract class BaseBill extends Base {
   @Column()
   accountId?: string
 
-  // 渠道 id
-  @Column()
-  channelId?: string
-
   // 一级分类 id
   @Column()
   firstLevelSortId?: string

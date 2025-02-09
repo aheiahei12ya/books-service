@@ -51,10 +51,6 @@ export class LedgerSetting extends Base {
   @Column()
   beneficiaryId?: string
 
-  // 默认渠道 id
-  @Column()
-  channelId?: string
-
   // 默认一级分类 id
   @Column()
   firstLevelSortId?: string

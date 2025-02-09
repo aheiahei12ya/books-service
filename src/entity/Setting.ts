@@ -47,13 +47,9 @@ export class LedgerSetting extends Base {
   @Column()
   methodId?: string
 
-  // 默认一级分类 id
+  // 默认分类 id
   @Column()
-  firstLevelSortId?: string
-
-  // 默认二级分类 id
-  @Column()
-  secondLevelSortId?: string
+  sortId?: string
 }
 
 export default [UserSetting, LedgerSetting]

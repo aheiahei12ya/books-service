@@ -34,8 +34,7 @@ export const ledgerSettingCreate = async (req: Request, res: Response) => {
     categoryId: req.body.categoryId,
     accountId: req.body.accountId,
     methodId: req.body.methodId,
-    firstLevelSortId: req.body.firstLevelSortId,
-    secondLevelSortId: req.body.secondLevelSortId
+    sortId: req.body.sortId
   })
 
   await repository.save(ledgerSetting)

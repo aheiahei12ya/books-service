@@ -40,8 +40,11 @@ export const routes = [
     path: '/api/ledger',
     child: ledgerRouter
   },
+  {
+    path: '/api/sort',
+    child: sortRoutes
+  },
   ...fundRoutes,
-  ...sortRoutes,
   ...groupRoutes,
   ...settingRoutes,
   ...statisticRoutes

@@ -24,13 +24,9 @@ export class Shortcut extends Base {
   @Column()
   methodId?: string
 
-  // 一级分类 id
+  // 分类 id
   @Column()
-  firstLevelSortId?: string
-
-  // 二级分类 id
-  @Column()
-  secondLevelSortId?: string
+  sortId?: string
 }
 
 export default [Shortcut]

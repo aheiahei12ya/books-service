@@ -11,8 +11,7 @@ export const ledgerSettingCreateInterface = [
   body('categoryId').isString(),
   body('accountId').isString(),
   body('methodId').isString(),
-  body('firstLevelSortId').isString(),
-  body('secondLevelSortId').isString()
+  body('sortId').isString(),
 ]
 
 export const ledgerSettingDetailInterface = [

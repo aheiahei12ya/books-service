@@ -50,13 +50,9 @@ export abstract class BaseBill extends Base {
   @Column()
   accountId?: string
 
-  // 一级分类 id
+  // 分类 id
   @Column()
-  firstLevelSortId?: string
-
-  // 二级分类 id
-  @Column()
-  secondLevelSortId?: string
+  sortId?: string
 
   // 记录时间
   @Column('datetime')

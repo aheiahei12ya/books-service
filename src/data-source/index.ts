@@ -1,6 +1,5 @@
 import { DataSource } from 'typeorm'
 
-import FiveInsurancesOneFund from '@/entity/5Insurances1Fund'
 import Account from '@/entity/Account'
 import BasicSort from '@/entity/BasicSort'
 import Bill from '@/entity/Bill'
@@ -25,8 +24,7 @@ const AppDataSource = new DataSource({
     ...Bill,
     ...Shortcut,
     ...Setting,
-    ...MonthlyStatistic,
-    ...FiveInsurancesOneFund
+    ...MonthlyStatistic
   ],
   subscribers: [],
   migrations: []
